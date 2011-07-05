@@ -1,0 +1,19 @@
+# This is ~/.autotest.
+#
+# For all projects on my Mac, I want the fsevent and Growl plugins.
+
+require 'autotest/fsevent'
+require 'autotest/growl'
+
+# Ignore changes to hidden repos so that the runner doesn't run unnecessarily.
+
+Autotest.add_hook :initialize do |autotest|
+  %w{.hg .git}.each {|regexp| autotest.add_exception(regexp)}
+end
+
+# Tweak some Growl notification parameters.
+
+Autotest::Growl::hide_label = true
+Autotest::Growl::show_modified_files = true
+Autotest::Growl::clear_terminal = true
+Autotest::Growl::one_notification_per_run = false

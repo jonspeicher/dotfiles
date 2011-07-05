@@ -1,0 +1,35 @@
+# This is ~/.gitignore.
+#
+# For my home directory, I only want to control hidden config files that begin with a period.  I'll
+# control files in subfolders using repositories in those specific subfolders.  In other words, I
+# want everything below ~/ to be ignored unless I specifically init a git repository in that
+# directory.  So, ignore everything, but don't ignore stuff that starts with a dot.
+
+*
+!.*
+
+# Of those dot-files, there are some that I additionally don't care about.
+
+.DS_Store
+.CFUserTextEncoding
+.Trash
+.Xauthority
+.bash_history
+.cpan
+.cups
+.dropbox
+.dvdcss
+.filezilla
+.gdb_history
+.gem
+.gitk
+.irb_history
+.lesshst
+.p4tickets
+.python-eggs
+.ssh
+.subversion
+.config
+.fontconfig
+.recently-used*
+.sqlite_history

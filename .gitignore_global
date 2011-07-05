@@ -1,0 +1,8 @@
+# This is ~/.gitignore_global.
+#
+# My .gitconfig refers to this file to configure a system-wide ignore pattern.  Since I'm on a Mac,
+# I never want to see .DS_Store, and since I have used Mercurial in the past, I don't want to see
+# Mercurial repos where I have them in the same place as Git repos.
+
+.DS_Store
+.hg

@@ -1,0 +1,3 @@
+--type-set=arduino=.pde
+--type-set=go=.go
+--type-set=processing=.pde

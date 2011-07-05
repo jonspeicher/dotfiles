@@ -1,0 +1,36 @@
+# This is ~/.hgignore.
+#
+# For my home directory, I only want to control hidden config files that
+# begin with a period.  I'll control files in subfolders using repositories
+# in those specific subfolders.  In other words, I want everything below ~/
+# to be ignored unless I specifically init a Mercurial repository in that
+# directory.
+
+syntax: regexp
+^[^\.]
+
+# Of those dot-files, there are some that I additionally don't care about.
+
+syntax: glob
+.CFUserTextEncoding
+.Trash
+.Xauthority
+.bash_history
+.cpan
+.cups
+.dropbox
+.dvdcss
+.filezilla
+.gdb_history
+.gem
+.gitk
+.irb_history
+.lesshst
+.p4tickets
+.python-eggs
+.ssh
+.subversion
+.config
+.fontconfig
+.recently-used*
+.sqlite_history
