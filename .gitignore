@@ -1,3 +1,8 @@
 # hgtemplates is itself a Mercurial repository, no need to control it twice.
 
 hgtemplates
+
+# GitHub tokens are substituted into .gitconfig via the shell so that they
+# don't show up in the repo.  Ignore the file that contains them.
+
+github_token

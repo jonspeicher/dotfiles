@@ -1,0 +1,20 @@
+# .gitconfig is the global configuration file for git.
+
+[user]
+	name = Jon Speicher
+	email = jon.speicher@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[merge]
+	tool = opendiff
+	summary = true
+[core]
+	autocrlf = input
+	excludesfile = /Users/Jon/.gitignore_global
+	editor = mate -w
+[github]
+	user = jonspeicher
+	token = !cat /Users/Jon/Documents/Dotfiles/github_token
