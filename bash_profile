@@ -1,5 +1,3 @@
-# This is ~/.bash_profile.
-#
 # .bash_profile is for login shells (e.g. remote ssh), while .bashrc is for 
 # non-login interactive shells (e.g. Terminal).
 

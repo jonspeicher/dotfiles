@@ -1,11 +1,11 @@
-# This is ~/.irbrc.
+# .irbrc is the global configuration file for the Ruby REPL irb.
 #
-# I stole most of this from George's .irbrc on GitHub:
+# Most of this comes from melange396's .irbrc on GitHub:
 # http://github.com/melange396/my.irbrc/blob/master/.irbrc
 
 require 'irb/completion'          # Adds tab completion
 IRB.conf[:VERBOSE] = true         # Adds some small amount of detail to some output
-IRB.conf[:PROMPT_MODE] = :SIMPLE  # Remove the icky extended prompt
+IRB.conf[:PROMPT_MODE] = :SIMPLE  # Removes the icky extended prompt
 
 # Shortcut for rubydocs
 

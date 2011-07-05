@@ -1,10 +1,12 @@
-# This is ~/.hgignore_global.
-#
-# My .hgrc refers to this file to configure a system-wide ignore pattern.
-# Since I'm on a Mac, I never want to see .DS_Store, and since I use Git, I
-# don't want to see Git repos where I have them in the same place as Mercurial
-# repos.
+# .hgignore_global is referred to by .hgrc to configure a system-wide ignore
+# pattern.
 
 syntax: glob
+
+# On a Mac, ignore .DS_Store.
+
 .DS_Store
+
+# Don't show Git repos where they appear in the same place as Mercurial repos.
+
 .git

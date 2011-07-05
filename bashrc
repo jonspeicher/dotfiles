@@ -1,6 +1,4 @@
-# This is ~/.bashrc.
-#
-# .bashrc is for non-login interactive shells (e.g. Terminal), while
+# .bashrc is for non-login interactive shells (e.g. Terminal),
 # .bash_profile is for login shells (e.g. remote ssh).
 
 # For Go.
@@ -26,7 +24,7 @@ alias la='ls -laGF'
 # Define a few colors for later use.  The escaped brackets tell bash that they
 # are non-printable and keep word-wrapping sane.  The LSCOLORS identifier
 # follows each color.  The RGB for the 16 stock ANSI colors are redefined in
-# my Terminal using a SIMBL hack.
+# Terminal using a SIMBL hack.
 
 BLACK='\['`tput setaf 0`'\]' # a
 RED='\['`tput setaf 1`'\]' # b

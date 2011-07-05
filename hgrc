@@ -1,4 +1,4 @@
-# This is ~/.hgrc.
+# .hgrc is the global configuration file for Mercurial.
 #
 # More info, including the location of system-wide config files, is at:
 # http://www.selenic.com/mercurial/hgrc.5.html
@@ -29,7 +29,7 @@ git = True
 
 extdiff =
 progress =
-graphlog = 
+graphlog =
 color =
 prompt = /Library/Python/2.6/site-packages/hg-prompt/prompt.py
 

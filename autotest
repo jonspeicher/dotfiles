@@ -1,6 +1,6 @@
-# This is ~/.autotest.
-#
-# For all projects on my Mac, I want the fsevent and Growl plugins.
+# .autotest is the configuration file for the Ruby Autotest gem.
+
+# Use the fsevent and Growl plugins.  These will probably only work on OS X.
 
 require 'autotest/fsevent'
 require 'autotest/growl'
