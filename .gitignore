@@ -1,0 +1,3 @@
+# hgtemplates is itself a Mercurial repository, no need to control it twice.
+
+hgtemplates
