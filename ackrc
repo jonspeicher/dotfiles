@@ -2,6 +2,6 @@
 
 # Add Arduino, Processing, and Go file types.
 
---type-set=arduino=.pde
+--type-set=arduino=.ino
 --type-set=go=.go
 --type-set=processing=.pde
