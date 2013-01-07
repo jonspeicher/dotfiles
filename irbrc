@@ -1,4 +1,4 @@
-# .irbrc is the global configuration file for the Ruby REPL irb.
+# .irbrc is the user-specific configuration file for the Ruby REPL irb.
 #
 # Most of this comes from melange396's .irbrc on GitHub:
 # http://github.com/melange396/my.irbrc/blob/master/.irbrc

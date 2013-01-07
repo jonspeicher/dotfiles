@@ -1,4 +1,4 @@
-# .gitconfig is the global configuration file for git.
+# .gitconfig is the user-specific configuration file for git.
 
 [user]
 	name = Jon Speicher
