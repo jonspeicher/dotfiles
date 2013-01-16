@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import collections, glob, itertools, os, shutil
+import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
 CURRENT_DIRECTORY = '.'
@@ -30,6 +30,7 @@ def copy(source_paths, destination_paths):
         print 'Copying ' + source + ' to ' + destination
         shutil.copyfile(source, destination)
 
+copy_out = ((len(sys.argv) > 1) and (sys.argv[1] == 'out'))
 leaders = collections.defaultdict(constant_factory(DEFAULT_LEADER), pairs(LEADER_FILENAME))
 ignore_filenames = lines(IGNORE_FILENAME)
 
@@ -40,4 +41,7 @@ common_paths = paths(COMMON_DIRECTORY, common_filenames)
 cwd_filenames = [leaders[filename] + filename for filename in common_filenames]
 cwd_paths = paths(CURRENT_DIRECTORY, cwd_filenames)
 
-copy(common_paths, cwd_paths)
+if copy_out:
+    copy(cwd_paths, common_paths)
+else:
+    copy(common_paths, cwd_paths)
