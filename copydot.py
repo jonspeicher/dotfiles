@@ -2,7 +2,9 @@
 
 import collections, glob, itertools, os, shutil
 
-DOTFILE_DIRECTORY = 'Dotfiles'
+COMMON_DIRECTORY = 'Dotfiles'
+CURRENT_DIRECTORY = '.'
+
 IGNORE_FILENAME = '.copydot_ignore'
 LEADER_FILENAME = '.copydot_leader'
 DEFAULT_LEADER = '.'
@@ -18,15 +20,24 @@ def pairs(filename):
     for line in lines(filename):
         yield line.split()
 
+def paths(directory, filenames):
+    return [os.path.join(directory, filename) for filename in filenames]
+
+def copy(source_paths, destination_paths):
+    copy_pairs = zip(source_paths, destination_paths)
+    for copy_pair in copy_pairs:
+        source, destination = copy_pair[0], copy_pair[1]
+        print 'Copying ' + source + ' to ' + destination
+        shutil.copyfile(source, destination)
+
 leaders = collections.defaultdict(constant_factory(DEFAULT_LEADER), pairs(LEADER_FILENAME))
 ignore_filenames = lines(IGNORE_FILENAME)
-filenames = os.listdir(DOTFILE_DIRECTORY)
-source_filenames = [filename for filename in filenames if filename not in ignore_filenames]
-dest_filenames = [leaders[filename] + filename for filename in source_filenames]
-source_filepaths = [os.path.join(DOTFILE_DIRECTORY, filename) for filename in source_filenames]
-dest_filepaths = [os.path.join('.', filename) for filename in dest_filenames]
-copy_pairs = zip(source_filepaths, dest_filepaths)
 
-for copy_pair in copy_pairs:
-    print 'Copying ' + copy_pair[0] + ' to ' + copy_pair[1]
-    shutil.copyfile(copy_pair[0], copy_pair[1])
+filenames = os.listdir(COMMON_DIRECTORY)
+common_filenames = [filename for filename in filenames if filename not in ignore_filenames]
+common_paths = paths(COMMON_DIRECTORY, common_filenames)
+
+cwd_filenames = [leaders[filename] + filename for filename in common_filenames]
+cwd_paths = paths(CURRENT_DIRECTORY, cwd_filenames)
+
+copy(common_paths, cwd_paths)
