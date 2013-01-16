@@ -1,6 +1,10 @@
 # .gitignore_global is referred to by .gitconfig to configure a system-wide
 # ignore pattern.
 
+# Always ignore vim swap files.
+
+*.swp
+
 # On a Mac, ignore .DS_Store.
 
 .DS_Store
