@@ -13,5 +13,5 @@
 	summary = true
 [core]
 	autocrlf = input
-	excludesfile = /Users/Jon/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
