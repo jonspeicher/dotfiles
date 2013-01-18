@@ -14,7 +14,4 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/Jon/.gitignore_global
-	editor = mate -w
-[github]
-	user = jonspeicher
-	token = !cat /Users/Jon/Documents/Dotfiles/github_token
+	editor = vim
