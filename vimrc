@@ -15,6 +15,9 @@ set hidden
 " When running under Windows, remove the 't' flag from GUI options to kill
 " tearoff menu options.
 
+" TBD: This can apparently go in a gvimrc or something.
+" See http://vim.wikia.com/wiki/Open_vimrc_file
+
 let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Set the window size.
