@@ -1,17 +1,17 @@
 # .gitconfig is the user-specific configuration file for git.
 
 [user]
-	name = Jon Speicher
-	email = jon.speicher@gmail.com
+    name = Jon Speicher
+    email = jon.speicher@gmail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
 [merge]
-	tool = opendiff
-	summary = true
+    tool = opendiff
+    summary = true
 [core]
-	autocrlf = input
-	excludesfile = ~/.gitignore_global
-	editor = vim
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+    editor = vim
