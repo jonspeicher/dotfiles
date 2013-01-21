@@ -1,0 +1,9 @@
+.git
+.gitignore
+autotest
+bash_profile
+bashrc
+gitconfig
+hgignore_global
+hgrc
+irbrc
