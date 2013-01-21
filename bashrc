@@ -24,7 +24,7 @@ alias la='ls -laGF'
 # Define a few colors for later use.  The escaped brackets tell bash that they
 # are non-printable and keep word-wrapping sane.  The LSCOLORS identifier
 # follows each color.  The RGB for the 16 stock ANSI colors are redefined in
-# Terminal under Lion using the built-in preferences.
+# Terminal under Lion and above using the built-in preferences.
 
 BLACK='\['`tput setaf 0`'\]' # a
 RED='\['`tput setaf 1`'\]' # b
