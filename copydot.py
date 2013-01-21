@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# TBD: .vimrc vs. _vimrc, .vim vs vimfiles, Windows vs. OS X, copying vs. linking, recursive copy of
+# .vim/vimfiles? Symlinking on Windows? Finding .copydot_ files when invoked from outside the dotfiles
+# directory?
+
 import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
