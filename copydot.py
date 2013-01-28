@@ -4,6 +4,12 @@
 # .vim/vimfiles? Symlinking on Windows? Finding .copydot_ files when invoked from outside the dotfiles
 # directory?
 
+# TBD: Moment of clarity: .copydot_ignore and .copydot_leader or whatever are OS-specific and maybe even
+# machine-specific, so they should live in ~ on each machine, and copydot should be run from ~ on each machine,
+# so finding them shouldn't be hard. Or, there can be "base" versions like copydot_ignore.win that live in dotfiles
+# that can be copied up when copydot is first run, and everything should be symlinked, even on Windows with mklink
+# or whatever, unless and until I decide I need copying, which I should try to get by without. KISS.
+
 import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
