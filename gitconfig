@@ -3,6 +3,14 @@
 [user]
     name = Jon Speicher
     email = jon.speicher@gmail.com
+
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+    editor = vim
+
+# TBD [credential] here
+
 [color]
     diff = auto
     status = auto
@@ -18,7 +26,3 @@
 [merge]
     tool = opendiff
     summary = true
-[core]
-    autocrlf = input
-    excludesfile = ~/.gitignore_global
-    editor = vim
