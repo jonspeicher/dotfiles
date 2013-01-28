@@ -8,6 +8,15 @@
     status = auto
     branch = auto
     interactive = auto
+[alias]
+    review = '!f() {
+        local SHA = ${1:-HEAD};
+        local BRANCH = ${2:-master};
+        if [ $SHA == $BRANCH ];
+            then SHA = HEAD;
+        fi;
+        git difftool -y $BRANCH...$SHA;
+    }; f'
 [merge]
     tool = opendiff
     summary = true
