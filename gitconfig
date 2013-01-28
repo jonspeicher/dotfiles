@@ -17,6 +17,11 @@
     branch = auto
     interactive = auto
 
+# TBD: Consider commonizing this with Windows by removing the shell function and the local and just
+# using a shell command?
+#
+#    departures = !sh -c 'git difftool -y ${1:-master}...HEAD' -
+
 [alias]
     departures = '!f() {
         local BRANCH = ${1:-master};
