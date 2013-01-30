@@ -10,6 +10,23 @@
 # that can be copied up when copydot is first run, and everything should be symlinked, even on Windows with mklink
 # or whatever, unless and until I decide I need copying, which I should try to get by without. KISS.
 
+# TBD: idea: dotfiles/copydot.py, dotfiles/copydot/copydot_leader.win copydot_ignore.win copydot_leader.osx
+# copydot_ignore.osx; copydot, when run from ~, copies those templates up if not found, then links all other
+# files and directories (e.g. .vim/vimfiles) using a system-specific symlink call, period, end of story, for now.
+# What later happens with Windows-specific gitconfig for example?
+
+# TBD: thoughts from the ride home last night: Have several steps. Keep all the files flat, and use platform-
+# specific extensions, e.g. gitconfig.win and gitconfig.osx. There could be a gitconfig common that was included
+# by both, and the script would assemble all common files, then assemble all platform-specific files, then do
+# the linking. The vimfiles directory could be linked, and things like color schemes could be added as git
+# subprojects if it's at all possible. The very first thing the script could do would be to copy into ~ a
+# copydot_ignore.win file or whatever if it doesn't exist, or this could be a special 'copydot init win' step
+# or something. I could even go as far as having the script init with 'copydot init win jspeicher@vascor.com' and
+# have it set my email address in gitconfig but maybe that's getting a little bit out-of-hand, although, maybe
+# it could copy up a stub gitconfig that included gitconfig-platform-win and gitconfig-platform-common or something
+# and just let me edit that by hand to get the email address in there. The leader would have to be a full rename
+# file so that it could handle things like .vim vs vimfiles.
+
 import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
