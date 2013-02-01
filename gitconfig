@@ -22,11 +22,11 @@
 #
 #    departures = !sh -c 'git difftool -y ${1:-master}...HEAD' -
 
-[alias]
-    departures = '!f() {
-        local BRANCH = ${1:-master};
-        git difftool -y $BRANCH...HEAD;
-    }; f'
+#[alias]
+#    departures = '!f() {
+#        local BRANCH = ${1:-master};
+#        git difftool -y $BRANCH...HEAD;
+#    }; f'
 
 [merge]
     tool = opendiff
