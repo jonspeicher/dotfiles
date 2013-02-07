@@ -1,12 +1,6 @@
 # .bashrc is for non-login interactive shells (e.g. Terminal),
 # .bash_profile is for login shells (e.g. remote ssh).
 
-# For Subversion.
-
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-
 # Convenient aliases.
 
 alias cls='clear'
