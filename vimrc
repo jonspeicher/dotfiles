@@ -1,6 +1,11 @@
 " .vimrc is the user-specific configuration file for vim.
 "
 " TBD: tabs vs spaces, indenting, newline at end of file, long lines
+" TBD: make a function to run, mapped to a key, that sets the size to 100x50
+"      or whatever, and otherwise just leave the size at whatever the terminal
+"      is, so that vim popping up in another terminal window as part of a git
+"      command for example doesn't resize the terminal window
+" TBD: figure out Ctrl on Mac, plus Ctrl-6/Ctrl-^
 
 " Use vim settings rather than vi settings. This must be first since it changes
 " other options as a side-effect.
