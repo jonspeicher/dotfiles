@@ -21,6 +21,11 @@ alias cls='clear'
 alias ls='ls -GF'
 alias la='ls -laGF'
 
+# Modern Xcode installs git inside the application bundle. Use the git that comes with Xcode
+# for now. See man xcrun for more information.
+
+alias git='xcrun git'
+
 # Define a few colors for later use.  The escaped brackets tell bash that they
 # are non-printable and keep word-wrapping sane.  The LSCOLORS identifier
 # follows each color.  The RGB for the 16 stock ANSI colors are redefined in
