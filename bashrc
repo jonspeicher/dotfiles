@@ -1,14 +1,6 @@
 # .bashrc is for non-login interactive shells (e.g. Terminal),
 # .bash_profile is for login shells (e.g. remote ssh).
 
-# For Go.
-
-export GOROOT=$HOME/Documents/Code/Go/release
-export GOARCH=amd64
-export GOOS=darwin
-export GOBIN=/Applications/Go
-export PATH=$GOBIN:$PATH
-
 # For Subversion.
 
 export LC_ALL="en_US.UTF-8"
