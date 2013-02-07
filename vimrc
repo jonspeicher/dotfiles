@@ -22,8 +22,8 @@ let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Set the window size.
 
-set lines=55
-set columns=120
+set lines=50
+set columns=100
 
 " Highlight the current line, enable line numbers, always display a status line,
 " and display incomplete commands in the last line.
