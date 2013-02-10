@@ -31,11 +31,16 @@ let &guioptions = substitute(&guioptions, "t", "", "g")
 "set columns=100
 
 " Highlight the current line, enable line numbers, always display a status line,
-" and display incomplete commands in the last line.
+" display incomplete commands in the last line, and show a long-line indicator
+" column.
+"
+" TBD: Look into textwidth and making the long-line column dependant on that,
+" and consider setting textwidth based on filetype?
 
 set cursorline
 set number
 set showcmd
+set colorcolumn=100
 
 " Set up the status line and ensure that it is always displayed. This obviates
 " the ruler option in this configuration.
