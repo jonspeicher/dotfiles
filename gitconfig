@@ -9,8 +9,6 @@
     excludesfile = ~/.gitignore_global
     editor = vim
 
-# TBD [credential] here
-
 [color]
     diff = auto
     status = auto
