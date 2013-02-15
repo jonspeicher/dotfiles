@@ -14,6 +14,7 @@
 "      the file open in my other vim instance; I think there's a command-line
 "      switch I'm using on Windows that I could look at, maybe make a shell
 "      alias
+" TBD: vim doesn't seem to want to reload a file changed outside of vim on my Mac
 
 " Use vim settings rather than vi settings. This must be first since it changes
 " other options as a side-effect.
