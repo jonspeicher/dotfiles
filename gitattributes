@@ -1,0 +1,14 @@
+# ~/.gitattributes is the user-specific path attributes configuration file for git. To work, this
+# file must be specified as the global configuration file using core.attributesfile. See
+# http://git-scm.com/docs/gitattributes.html for more information.
+
+*.c     diff=cpp
+*.cc    diff=cpp
+*.cpp   diff=cpp
+*.cs    diff=csharp
+*.html  diff=html
+*.java  diff=java
+*.m     diff=objc
+*.pl    diff=perl
+*.py    diff=python
+*.rb    diff=ruby
