@@ -5,7 +5,15 @@
 "      or whatever, and otherwise just leave the size at whatever the terminal
 "      is, so that vim popping up in another terminal window as part of a git
 "      command for example doesn't resize the terminal window
-" TBD: figure out Ctrl on Mac, plus Ctrl-6/Ctrl-^
+" TBD: figure out Ctrl on Mac, plus Ctrl-6/Ctrl-^, mapping Ctrl to Caps Lock can apparently be done 
+"      system-wide in keyboard preferences under System Preferences | Keyboard | Modifier Keys, but
+"      I'm sure if I do that I'll want it on Windows too, and how does that
+"      work?
+" TBD: another problem is that when I have vim open in one Terminal in OS X I
+"      can't do 'vim foo' from a different terminal command prompt and have
+"      the file open in my other vim instance; I think there's a command-line
+"      switch I'm using on Windows that I could look at, maybe make a shell
+"      alias
 
 " Use vim settings rather than vi settings. This must be first since it changes
 " other options as a side-effect.
