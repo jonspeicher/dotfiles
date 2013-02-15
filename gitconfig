@@ -1,14 +1,25 @@
 # ~/.gitconfig is the user-specific configuration file for git. git refers to this as the "global"
 # configuration file.
 
+# TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
+
 [user]
     name = Jon Speicher
     email = jon.speicher@gmail.com
 
+# TBD: Platform-specific stuff here (OS X/Windows) -------------------------------------------------
+
+# Since line-ends are hard, here is a good explanation of why to set what for each platform:
+# http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line
+
 [core]
     autocrlf = input
+    safecrlf = true
     excludesfile = ~/.gitignore_global
+    # TBD: attributesfile
     editor = vim
+
+# TBD: Platform-generic stuff here -----------------------------------------------------------------
 
 [color]
     diff = auto
