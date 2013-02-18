@@ -1,5 +1,5 @@
-# ~/.gitconfig is the user-specific configuration file for git. git refers to this as the "global"
-# configuration file.
+# .gitconfig is the user-specific system-wide configuration file for git. git refers to this as the
+# "global" configuration file.
 
 # TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
 
