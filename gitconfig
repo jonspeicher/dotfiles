@@ -14,9 +14,6 @@
 
 [core]
     autocrlf = input
-    safecrlf = true
-    excludesfile = ~/.gitignore_global
-    attributesfile = ~/.gitattributes_global
     editor = vim
 
 # Select the diff and merge tool for this platform and set any tool-specific options. Various tools
@@ -29,6 +26,13 @@
     tool = Kaleidoscope
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
+
+# Reject irreversable line end manipulation and point to system-wide exclude and attribute files.
+
+[core]
+    safecrlf = true
+    excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes_global
 
 # Use color for all supported git operations only when outputting to a terminal.
 
