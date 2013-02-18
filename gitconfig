@@ -67,3 +67,9 @@
 [mergetool "Kaleidoscope"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
     trustExitCode = true
+
+[difftool "WinMerge"]
+    cmd = "\"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\""
+
+[mergetool "WinMerge"]
+    cmd = "\"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" \"$MERGED\""
