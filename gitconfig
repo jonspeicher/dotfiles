@@ -22,10 +22,7 @@
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+    ui = auto
 
 # Set up generic diff and merge tool options.
 
