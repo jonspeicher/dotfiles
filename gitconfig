@@ -30,6 +30,8 @@
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
+# Use color for all supported git operations only when outputting to a terminal.
+
 [color]
     ui = auto
 
@@ -52,8 +54,8 @@
 [alias]
 
     # Using difftool, show only changes to the current branch since it departed from the specified
-    # parent branch (or master), ignoring changes that have happened on the parent branch since. I
-    # stole this from http://blackpixel.com/blog/2012/11/code-review-kaleidoscope.html.
+    # parent branch (or master), ignoring changes that have happened on the parent branch since.
+    # This is inspired by http://blackpixel.com/blog/2012/11/code-review-kaleidoscope.html.
 
     departures = !sh -c 'git difftool -y ${1:-master}...HEAD' -
 
