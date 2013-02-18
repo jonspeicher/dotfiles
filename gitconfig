@@ -27,20 +27,23 @@
 
 [merge]
     tool = Kaleidoscope
-    summary = true
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
 [color]
     ui = auto
 
-# Set up generic diff and merge tool options.
+# Set up generic diff and merge options.
 
 [difftool]
     prompt = false
 
+[merge]
+    log = true
+
 [mergetool]
     prompt = false
+    keepBackup = false
 
 # Set up convenient git aliases. Where possible, constructs like shell functions are avoided in
 # favor of mechanisms that will work across platforms like direct command aliases or, where
