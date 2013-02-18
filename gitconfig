@@ -19,6 +19,16 @@
     attributesfile = ~/.gitattributes_global
     editor = vim
 
+# Select the diff and merge tool for this platform and set any tool-specific options. Various tools
+# are configured at the end of this file.
+
+[diff]
+    tool = Kaleidoscope
+
+[merge]
+    tool = Kaleidoscope
+    summary = true
+
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
 [color]
@@ -31,16 +41,6 @@
 
 [mergetool]
     prompt = false
-
-# Select the diff and merge tool for this platform and set any tool-specific options. Various tools
-# are configured at the end of this file.
-
-[diff]
-    tool = Kaleidoscope
-
-[merge]
-    tool = Kaleidoscope
-    summary = true
 
 # Set up convenient git aliases. Where possible, constructs like shell functions are avoided in
 # favor of mechanisms that will work across platforms like direct command aliases or, where
