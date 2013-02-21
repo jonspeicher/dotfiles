@@ -61,7 +61,7 @@
     # parent branch (or master), ignoring changes that have happened on the parent branch since.
     # This is inspired by http://blackpixel.com/blog/2012/11/code-review-kaleidoscope.html.
 
-    departures = !sh -c 'git difftool -y ${1:-master}...HEAD' -
+    departures = !sh -c 'git difftool ${1:-master}...HEAD' -
 
 # Configure various external tools. A given tool may not be available on a given platform.
 
