@@ -63,6 +63,13 @@
 
     departures = !sh -c 'git difftool ${1:-master}...HEAD' -
 
+    # This is the opposite of the alias above; using difftool, show only changes to the parent
+    # branch (or master) since the current branch departed from it, ignoring changes that have
+    # happened on the current branch since. This comes from the git-diff(1) man page at
+    # http://www.kernel.org/pub/software/scm/git/docs/git-diff.html.
+
+    upstream = !sh -c 'git difftool HEAD...${1:-master}' -
+
 # Configure various external tools. A given tool may not be available on a given platform.
 
 [difftool "Kaleidoscope"]
