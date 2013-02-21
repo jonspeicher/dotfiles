@@ -80,7 +80,8 @@
     trustExitCode = true
 
 [difftool "WinMerge"]
-    cmd = "\"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" \"$LOCAL\" \"$REMOTE\""
+    cmd = winmerge -e -u -dl \"$BASE (Previous)\" -dr \"$BASE (Current)\" \"$LOCAL\" \"$REMOTE\"
 
 [mergetool "WinMerge"]
-    cmd = "\"C:/Program Files (x86)/WinMerge/WinMergeU.exe\" \"$MERGED\""
+    cmd = winmerge \"$MERGED\"
+    trustExitCode = false
