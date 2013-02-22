@@ -27,6 +27,17 @@
 # and just let me edit that by hand to get the email address in there. The leader would have to be a full rename
 # file so that it could handle things like .vim vs vimfiles.
 
+# TBD: idea: combine ignore and leader in one file, format:
+#
+#   autotest
+#   vimrc       _vimrc
+#
+# meaning autotest is ignored and vimrc is linked to _vimrc; there could also be a special character
+# meaning that a file is to be ignored, like:
+#
+#   autotest    -
+#   vimrc       _vimrc
+
 import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
