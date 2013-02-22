@@ -3,6 +3,7 @@
 import os, re, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'
+BUILTIN_IGNORE_PATTERNS = ['README', '^\.']
 
 def stripped_lines(filename):
     try:
@@ -17,9 +18,8 @@ script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
 repo_filenames = os.listdir(repo_directory)
 
-BUILTIN_IGNORE_PATTERNS = [script_filename, 'README', '^\.']
 user_ignore_patterns = stripped_lines(user_ignore_filename)
-ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns
+ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
 joined_ignore_patterns = "(" + ")|(".join(ignore_patterns) + ")"
 ignore_regex = re.compile(joined_ignore_patterns)
 not_ignored = lambda filename: not ignore_regex.match(filename)
