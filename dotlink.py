@@ -13,11 +13,10 @@ def stripped_lines(filename):
 repo_directory, script_filename = os.path.split(sys.argv[0])
 repo_filenames = os.listdir(repo_directory)
 
-# TBD: load user ignore patterns from file, append to list, put some or all in constant
+BUILTIN_IGNORE_PATTERNS = [script_filename, 'README', '^\.']
 user_ignore_filename = '.dotlink_ignore'
 user_ignore_patterns = stripped_lines(user_ignore_filename)
-print user_ignore_patterns
-ignore_patterns = [script_filename, 'README', '^\.']
+ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns
 joined_ignore_patterns = "(" + ")|(".join(ignore_patterns) + ")"
 ignore_regex = re.compile(joined_ignore_patterns)
 not_ignored = lambda filename: not ignore_regex.match(filename)
