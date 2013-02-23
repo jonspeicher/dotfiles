@@ -38,6 +38,17 @@
 #   autotest    -
 #   vimrc       _vimrc
 
+# TBD: yet another idea: Just like I have "not_ignored", have "for_platform" that matches any file
+# with no extension or that has the specified platform extension, suitable for use with filter. In
+# other words, it matches good files, not bad files.  In fact, stubs could be a "platform", so:
+#
+#   dotlink.py win
+#   dotlink.py osx stubs
+#
+# It could build an include regex the same way it builds the ignore regex, then in the "copy or
+# link" step it could take special action if the file is a stub, or could filter into two lists, one
+# for copy, one for link.
+
 import collections, glob, itertools, os, shutil, sys
 
 COMMON_DIRECTORY = 'Dotfiles'
