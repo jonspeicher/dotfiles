@@ -8,8 +8,8 @@ BUILTIN_PLATFORM_PATTERNS = ['.*']
 
 def stripped_lines(filename):
     try:
-        with open(filename, 'r') as f:
-            lines = f.readlines()
+        with open(filename, 'r') as file_to_read:
+            lines = file_to_read.readlines()
     except IOError:
         lines = []
     return [line.strip() for line in lines]
