@@ -3,7 +3,7 @@
 import os, re, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'
-BUILTIN_IGNORE_PATTERNS = ['README', '^\.']
+BUILTIN_IGNORE_PATTERNS = ['^README.*', '^\..*']
 BUILTIN_PLATFORM_PATTERNS = ['^[^\.]+$']
 
 def stripped_lines(filename):
