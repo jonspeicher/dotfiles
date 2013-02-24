@@ -4,7 +4,7 @@ import os, re, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'
 BUILTIN_IGNORE_PATTERNS = ['README', '^\.']
-BUILTIN_PLATFORM_PATTERNS = ['.*']
+BUILTIN_PLATFORM_PATTERNS = ['^[^\.]+$']
 
 def stripped_lines(filename):
     try:
@@ -25,8 +25,9 @@ joined_ignore_patterns = "(" + ")|(".join(ignore_patterns) + ")"
 ignore_regex = re.compile(joined_ignore_patterns)
 not_ignored = lambda filename: not ignore_regex.match(filename)
 
-platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
-platform_patterns = BUILTIN_PLATFORM_PATTERNS
+user_platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
+user_platform_patterns = []
+platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
 joined_platform_patterns = "(" + ")|(".join(platform_patterns) + ")"
 platform_regex = re.compile(joined_platform_patterns)
 for_platform = lambda filename: platform_regex.match(filename)
