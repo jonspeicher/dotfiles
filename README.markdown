@@ -13,3 +13,6 @@ note this in the readme in some way. This means that any executable file that ha
 dotlink.py itself, will be treated as though it's part of the 'py' platform, but that's ok for now,
 because dotlink.py is treated as a special-case built-in ignored file already. I'm scratching my own
 itch with this, not building a Swiss Army knife for the world.
+
+Also is it worth noting that the regex syntax used in the ignore file is applied with match rather
+than search?
