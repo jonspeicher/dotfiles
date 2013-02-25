@@ -16,6 +16,10 @@
 "      alias
 " TBD: vim doesn't seem to want to reload a file changed outside of vim on my Mac
 
+" Apparently this prevents some security exploits.
+
+set modelines=0
+
 " Use vim settings rather than vi settings. This must be first since it changes
 " other options as a side-effect.
 
