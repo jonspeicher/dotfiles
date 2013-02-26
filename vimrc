@@ -22,7 +22,7 @@ set modelines=0
 
 " I'm told that the cool kids use pathogen.
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Use vim settings rather than vi settings. This must be first-ish since it
