@@ -16,6 +16,12 @@ def stripped_lines(filename):
         lines = []
     return [line.strip() for line in lines]
 
+def make_filter(patterns, negate = False):
+    joined_patterns = "(" + ")|(".join(patterns) + ")"
+    regex = re.compile(joined_patterns)
+    filter_lambda = (lambda item: not regex.match(item)) if negate else (lambda item: regex.match(item))
+    return filter_lambda
+
 repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
@@ -23,16 +29,12 @@ repo_filenames = os.listdir(repo_directory)
 
 user_ignore_patterns = stripped_lines(user_ignore_filename)
 ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
-joined_ignore_patterns = "(" + ")|(".join(ignore_patterns) + ")"
-ignore_regex = re.compile(joined_ignore_patterns)
-not_ignored = lambda filename: not ignore_regex.match(filename)
+not_ignored = make_filter(ignore_patterns, negate = True)
 
 user_platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
 user_platform_patterns = [USER_PLATFORM_PATTERN_TEMPLATE % platform for platform in user_platforms]
 platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
-joined_platform_patterns = "(" + ")|(".join(platform_patterns) + ")"
-platform_regex = re.compile(joined_platform_patterns)
-for_platform = lambda filename: platform_regex.match(filename)
+for_platform = make_filter(platform_patterns)
 
 unignored_filenames = filter(not_ignored, repo_filenames)
 platform_filenames = filter(for_platform, unignored_filenames)
