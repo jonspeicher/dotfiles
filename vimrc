@@ -20,8 +20,13 @@
 
 set modelines=0
 
-" Use vim settings rather than vi settings. This must be first since it changes
-" other options as a side-effect.
+" I'm told that the cool kids use pathogen.
+
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+" Use vim settings rather than vi settings. This must be first-ish since it
+" changes other options as a side-effect.
 
 set nocompatible
 
