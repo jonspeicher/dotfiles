@@ -1,6 +1,0 @@
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/vim-tomorrow-theme"]
-	path = vim/bundle/vim-tomorrow-theme
-	url = https://github.com/chriskempson/vim-tomorrow-theme
