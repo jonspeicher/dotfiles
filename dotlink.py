@@ -19,7 +19,10 @@ def stripped_lines(filename):
 def make_filter(patterns, negate = False):
     joined_patterns = "(" + ")|(".join(patterns) + ")"
     regex = re.compile(joined_patterns)
-    filter_lambda = (lambda item: not regex.match(item)) if negate else (lambda item: regex.match(item))
+    if negate:
+        filter_lambda = lambda item: not regex.match(item)
+    else:
+        filter_lambda = lambda item: regex.match(item)
     return filter_lambda
 
 repo_directory, script_filename = os.path.split(sys.argv[0])
