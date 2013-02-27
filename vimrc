@@ -1,19 +1,20 @@
 " .vimrc is the user-specific configuration file for vim.
 "
-" TBD: tabs vs spaces, indenting, newline at end of file, long lines
+" TBD: tabs vs spaces, indenting, newline at end of file
 " TBD: make a function to run, mapped to a key, that sets the size to 100x50
 "      or whatever, and otherwise just leave the size at whatever the terminal
 "      is, so that vim popping up in another terminal window as part of a git
-"      command for example doesn't resize the terminal window
-" TBD: figure out Ctrl on Mac, plus Ctrl-6/Ctrl-^, mapping Ctrl to Caps Lock can apparently be done 
-"      system-wide in keyboard preferences under System Preferences | Keyboard | Modifier Keys, but
-"      I'm sure if I do that I'll want it on Windows too, and how does that
-"      work?
+"      command for example doesn't resize the terminal window but that I can
+"      quickly expand a vim window to a good size if I want
+" TBD: make a function to change to the working directory of the current file
+"      and potentially launch Ack from there as well (see email)
+" TBD: figure out Ctrl-6/Ctrl-^ and why they're different on Windows vs. Mac
+" TBD: map Caps Lock to Ctrl on Windows?
 " TBD: another problem is that when I have vim open in one Terminal in OS X I
 "      can't do 'vim foo' from a different terminal command prompt and have
 "      the file open in my other vim instance; I think there's a command-line
 "      switch I'm using on Windows that I could look at, maybe make a shell
-"      alias
+"      alias, or maybe this is the problem that MacVim solves
 " TBD: vim doesn't seem to want to reload a file changed outside of vim on my Mac
 
 " Apparently this prevents some security exploits.
