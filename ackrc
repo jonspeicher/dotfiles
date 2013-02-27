@@ -1,7 +1,7 @@
-# .ackrc is the configuration file for ack (http://betterthangrep.com).
+# .ackrc is the user-specific system-wide configuration file for ack. See
+# http://betterthangrep.com/documentation/man.html#the__ackrc_file for more information.
 
-# Add Arduino, Processing, and Go file types.
+# Add Arduino and Processing file types.
 
 --type-set=arduino=.ino
---type-set=go=.go
 --type-set=processing=.pde
