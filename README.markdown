@@ -16,3 +16,20 @@ itch with this, not building a Swiss Army knife for the world.
 
 Also is it worth noting that the regex syntax used in the ignore file is applied with match rather
 than search?
+
+Plugin instructions (clean these up):
+
+To install a new plugin:
+
+        git submodule add url vim/bundle/path
+        git submodule init && git submodule update
+
+To pull all plugins:
+
+        git submodule foreach git pull [origin master]
+
+To remove a plugin:
+
+        edit .gitmodules
+        run git rm --cached vim/bundle/path
+        edit .git/config? remove .git/modules/vim/bundle/path?
