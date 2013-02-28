@@ -23,6 +23,8 @@ To install a new plugin:
 
         git submodule add url vim/bundle/path
         git submodule init && git submodule update
+        git add .
+        git commit -m "Install foo bundle as a submodule to vim/bundle/path" or whatever
 
 To pull all plugins:
 
@@ -30,6 +32,18 @@ To pull all plugins:
 
 To remove a plugin:
 
-        edit .gitmodules
-        run git rm --cached vim/bundle/path
-        edit .git/config? remove .git/modules/vim/bundle/path?
+        delete the relevant section from .gitmodules
+        delete the relevant section from .git/config
+        run git rm --cached vim/bundle/path (no trailing slash!)
+        commit and delete the now-untracked submodule files
+
+To clone:
+
+        git clone https://github.com/jonspeicher/dotfiles ~/.dotfiles
+        git submodule init
+        git submodule update
+
+To link (eventually):
+
+        cd ~
+        .dotfiles/dotlink.py platform
