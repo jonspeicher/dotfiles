@@ -1,0 +1,11 @@
+# .inputrc is the user-specific system-wide configuration file for the readline library, which is 
+# used by several different programs, including screen and, most notably, bash. See
+# http://www.gnu.org/software/bash/manual/html_node/Command-Line-Editing.html for more information.
+
+# Use vi editing mode.
+
+set editing-mode vi
+
+# Key binding commands following this variable setting will belong to the vi-command keymap.
+
+set keymap vi-command
