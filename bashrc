@@ -1,6 +1,10 @@
 # .bashrc is for non-login interactive shells (e.g. Terminal),
 # .bash_profile is for login shells (e.g. remote ssh).
 
+# Change readline to vi mode.
+
+set -o vi
+
 # Convenient aliases.
 
 alias cls='clear'
