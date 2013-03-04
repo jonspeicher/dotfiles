@@ -1,7 +1,9 @@
-# .bashrc is for non-login interactive shells (e.g. Terminal),
-# .bash_profile is for login shells (e.g. remote ssh).
+# .bashrc is the user-specific system-wide configuration file for the Bourne Again Shell (bash).
+# .bashrc is used for non-login interactive shells (e.g. Terminal), while .bash_profile is used for
+# login shells (e.g. remote ssh).
 
-# Change readline to vi mode.
+# Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
+# for vi keymap modifications that apply to all readline-using programs, including bash.
 
 set -o vi
 
@@ -11,15 +13,14 @@ alias cls='clear'
 alias ls='ls -GF'
 alias la='ls -laGF'
 
-# Modern Xcode installs git inside the application bundle. Use the git that comes with Xcode
-# for now. See man xcrun for more information.
+# Modern Xcode installs git inside the application bundle. Use the git that comes with Xcode for
+# now. See man xcrun for more information.
 
 alias git='xcrun git'
 
-# Define a few colors for later use.  The escaped brackets tell bash that they
-# are non-printable and keep word-wrapping sane.  The LSCOLORS identifier
-# follows each color.  The RGB for the 16 stock ANSI colors are redefined in
-# Terminal under Lion and above using the built-in preferences.
+# Define a few colors for later use.  The escaped brackets tell bash that they are non-printable and
+# keep word-wrapping sane.  The LSCOLORS identifier follows each color.  The RGB for the 16 stock
+# ANSI colors are redefined in Terminal under Lion and above using the built-in preferences.
 
 BLACK='\['`tput setaf 0`'\]' # a
 RED='\['`tput setaf 1`'\]' # b
@@ -35,9 +36,8 @@ DEFAULT='\['`tput sgr0`'\]' # x
 
 export LSCOLORS="fxexxxxxcxxxxxxxxxgxgx"
 
-# Build a prompt decorator if we're in a git repo.  The branch name is included
-# in green if the branch is master, red otherwise.  An asterisk appears if the
-# working directory is not clean.
+# Build a prompt decorator if we're in a git repo.  The branch name is included in green if the
+# branch is master, red otherwise.  An asterisk appears if the working directory is not clean.
 
 function parse_git_branch {
 
