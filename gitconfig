@@ -1,5 +1,11 @@
-# .gitconfig is the user-specific system-wide configuration file for git. git refers to this as the
-# "global" configuration file.
+# .gitconfig is the user-specific configuration file for Git. It must exist in $HOME. It will
+# override configuration specified in system- and other user-specific configuration files elsewhere,
+# and its configuration will be overridden by repository-specific configuration files. The Git
+# documentation and Git itself refer to this as the "global" configuration file. See:
+#
+#     https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
+#
+# for more information.
 
 # TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
 

@@ -1,6 +1,11 @@
-# .bashrc is the user-specific system-wide configuration file for the Bourne Again Shell (bash).
-# .bashrc is used for non-login interactive shells (e.g. Terminal), while .bash_profile is used for
+# .bashrc is the user-specific configuration file for the Bourne Again Shell (bash). It must exist
+# in $HOME and will be sourced by bash after system-wide configuration files in /etc for all non-
+# login shells..bashrc is used
+# for non-login interactive shells (e.g. Terminal), while .bash_profile is used for
 # login shells (e.g. remote ssh).
+# See http://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html for information on
+# bash startup file execution precedence.
+# See http://www.linuxfromscratch.org/blfs/view/svn/postlfs/profile.html for what should go where.
 
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
@@ -18,8 +23,8 @@ alias la='ls -laGF'
 
 alias git='xcrun git'
 
-# Define a few colors for later use.  The escaped brackets tell bash that they are non-printable and
-# keep word-wrapping sane.  The LSCOLORS identifier follows each color.  The RGB for the 16 stock
+# Define a few colors for later use. The escaped brackets tell bash that they are non-printable and
+# keep word-wrapping sane. The LSCOLORS identifier follows each color. The RGB for the 16 stock
 # ANSI colors are redefined in Terminal under Lion and above using the built-in preferences.
 
 BLACK='\['`tput setaf 0`'\]' # a
@@ -32,12 +37,12 @@ CYAN='\['`tput setaf 6`'\]' # g
 WHITE='\['`tput setaf 7`'\]' # h
 DEFAULT='\['`tput sgr0`'\]' # x
 
-# Configure colorized ls output.  See the ls man page for the format.
+# Configure colorized ls output. See the ls man page for the format.
 
 export LSCOLORS="fxexxxxxcxxxxxxxxxgxgx"
 
-# Build a prompt decorator if we're in a git repo.  The branch name is included in green if the
-# branch is master, red otherwise.  An asterisk appears if the working directory is not clean.
+# Build a prompt decorator if we're in a git repo. The branch name is included in green if the
+# branch is master, red otherwise. An asterisk appears if the working directory is not clean.
 
 function parse_git_branch {
 

@@ -1,5 +1,10 @@
-# .hgignore_global is referred to by .hgrc to configure a system-wide ignore
-# pattern.
+# .hgignore_global is the user-specific system-wide ignore pattern configuration file for Mercurial.
+# It must be specified by ui.ignore. Its configuration will be overridden by repository-specific
+# configuration files or configuration specified on the command line. See:
+#
+#     http://www.selenic.com/mercurial/hgignore.5.html
+#
+# for more information.
 
 syntax: glob
 

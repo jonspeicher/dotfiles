@@ -1,7 +1,11 @@
-# .hgrc is the user-specific configuration file for Mercurial.
+# .hgrc is the user-specific configuration file for Mercurial. It must exist in $HOME. It will
+# override configuration specified in system- and installation-specific configuration files
+# elsewhere, and its configuration will be overridden by repository-specific configuration files.
+# See:
 #
-# More info, including the location of system-wide config files, is at:
-# http://www.selenic.com/mercurial/hgrc.5.html
+#     http://www.selenic.com/mercurial/hgrc.5.html
+#
+# for more information.
 
 [ui]
 
@@ -35,14 +39,14 @@ prompt = /Library/Python/2.6/site-packages/hg-prompt/prompt.py
 
 [alias]
 
-# Create a few aliase log command.
-# Stolen from http://hgtip.com/tips/beginner/2009-10-07-shortlog-for-fun-and-profit and
+# Create a few aliased log commands. These rely on templates located as identified below and are 
+# directly stolen from http://hgtip.com/tips/beginner/2009-10-07-shortlog-for-fun-and-profit and
 # http://hgtip.com/tips/advanced/2010-01-15-styling-mercurials-cli.
 
-slog = log --style=/Users/Jon/.hgtemplates/map-cmdline.slog
-dlog = log --style=/Users/Jon/.hgtemplates/map-cmdline.dlog
-nlog = log --style=/Users/Jon/.hgtemplates/map-cmdline.nlog
-sglog = glog --style=/Users/Jon/.hgtemplates/map-cmdline.sglog
+slog = log --style=~/.hgtemplates/map-cmdline.slog
+dlog = log --style=~/.hgtemplates/map-cmdline.dlog
+nlog = log --style=~/.hgtemplates/map-cmdline.nlog
+sglog = glog --style=~/.hgtemplates/map-cmdline.sglog
 
 [merge-tools]
 

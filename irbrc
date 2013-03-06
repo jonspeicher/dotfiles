@@ -1,13 +1,26 @@
-# .irbrc is the user-specific configuration file for the Ruby REPL irb.
+# .irbrc is the user-specific global configuration file for the interactive Ruby shell, irb.  It
+# must exist in $HOME or be specified by $IRBRC, with $IRBRC having higher precedence. It will
+# override command-line options and all other system- and tree-specific configuration files, and it
+# cannot be overridden. See:
 #
-# Most of this comes from melange396's .irbrc on GitHub:
-# http://github.com/melange396/my.irbrc/blob/master/.irbrc
+#     http://www.ruby-doc.org/docs/ProgrammingRuby/html/irb.html
+#
+# for more information.
 
-require 'irb/completion'          # Adds tab completion
-IRB.conf[:VERBOSE] = true         # Adds some small amount of detail to some output
-IRB.conf[:PROMPT_MODE] = :SIMPLE  # Removes the icky extended prompt
+# Add tab completion.
 
-# Shortcut for rubydocs
+require 'irb/completion'
+
+# Add some small amount of detail to some output.
+
+IRB.conf[:VERBOSE] = true
+
+# Remove the extended prompt.
+
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+
+# Define a function to be used within IRB as a shortcut for viewing Ruby documentation. This is the
+# equivalent of the ri command-line tool.
 
 def ri(*args)
   system(%{ri #{args.map {|arg| arg.to_s}.join(" ")}})
