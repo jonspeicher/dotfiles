@@ -18,7 +18,7 @@ alias cls='clear'
 alias ls='ls -GF'
 alias la='ls -laGF'
 
-# Modern Xcode installs git inside the application bundle. Use the git that comes with Xcode for
+# Modern Xcode installs Git inside the application bundle. Use the Git that comes with Xcode for
 # now. See man xcrun for more information.
 
 alias git='xcrun git'
@@ -41,7 +41,7 @@ DEFAULT='\['`tput sgr0`'\]' # x
 
 export LSCOLORS="fxexxxxxcxxxxxxxxxgxgx"
 
-# Build a prompt decorator if we're in a git repo. The branch name is included in green if the
+# Build a prompt decorator if we're in a Git repo. The branch name is included in green if the
 # branch is master, red otherwise. An asterisk appears if the working directory is not clean.
 
 function parse_git_branch {
