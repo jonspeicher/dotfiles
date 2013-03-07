@@ -1,8 +1,9 @@
-# .autotest is the user-specific global configuration file for the Ruby Autotest tool, which is part of the
-# ZenTest gem. It must exist in $HOME or be specified on the command line, with the command line
-# having higher precedence. Its configuration will be merged with configuration specified
-# in project-specific configuration files. See:
-# TBD: ~/.autotest parsed first then .autotest, when command line? who wins? ditto all other files (sigh)
+# .autotest is the user-specific global configuration file for the Ruby Autotest tool, which is part
+# of the ZenTest gem. It must exist in $HOME or be specified on the command line, with the command
+# line having higher precedence. Configuration within this file will be merged with configuration
+# within tree-specific configuration files and command-line options, with configuration within tree-
+# specific files overriding configuration within this file, and both overriding command-line
+# options, where applicable. See:
 #
 #     http://zentest.rubyforge.org/ZenTest
 #

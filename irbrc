@@ -1,7 +1,8 @@
 # .irbrc is the user-specific global configuration file for the interactive Ruby shell, irb.  It
 # must exist in $HOME or be specified by $IRBRC, with $IRBRC having higher precedence. It will
-# override command-line options and all other system- and tree-specific configuration files, and it
-# cannot be overridden. See:
+# override all other system- and tree-specific configuration files. Configuration within this file
+# will be merged with command-line options, with configuration within this file overriding command-
+# line options where applicable. See:
 #
 #     http://www.ruby-doc.org/docs/ProgrammingRuby/html/irb.html
 #
