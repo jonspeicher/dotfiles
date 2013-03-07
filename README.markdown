@@ -47,3 +47,10 @@ To link (eventually):
 
         cd ~
         .dotfiles/dotlink.py platform
+
+Dotfile precedence is awful, with /etc files, tree-local files, ~/ files, command-line options,
+shell options, and environment variables all entering the equation, and various schemes for merging,
+overriding, or chaining config. In general the assumption is that simply linking these files into
+~ is enough. Where there are issues or other requirements I'll try to note it in the file, and I'll
+try to provide a link to more information regarding the mess in the file header where I can. If
+there are really crazy special exceptions I'll note them.
