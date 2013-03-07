@@ -1,11 +1,9 @@
-# .hgrc is the user-specific configuration file for Mercurial. It must exist in $HOME. It will
-# override configuration specified in system- and installation-specific configuration files
-# elsewhere, and its configuration will be overridden by repository-specific configuration files.
-# See:
+# .hgrc is the user-specific global configuration file for Mercurial. See:
 #
 #     http://www.selenic.com/mercurial/hgrc.5.html
 #
-# for more information.
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
 
 [ui]
 
@@ -23,7 +21,7 @@ pretxnchangegroup.crlf = python:hgext.win32text.forbidcrlf
 
 [diff]
 
-# Use git-style diffs.
+# Use Git-style diffs.
 
 git = True
 

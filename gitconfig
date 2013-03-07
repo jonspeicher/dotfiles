@@ -1,11 +1,12 @@
-# .gitconfig is the user-specific configuration file for Git. It must exist in $HOME. It will
-# override configuration specified in system- and other user-specific configuration files elsewhere,
-# and its configuration will be overridden by repository-specific configuration files. The Git
-# documentation and Git itself refer to this as the "global" configuration file. See:
+# .gitconfig is the user-specific global configuration file for Git. The Git documentation and Git
+# itself specifically refer to this as the "global" configuration file, which can be confusing as
+# it is user-specific and different from the "system" configuration and "local" configuration files.
+# See:
 #
 #     https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
 #
-# for more information.
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
 
 # TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
 
@@ -40,7 +41,7 @@
     excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
 
-# Use color for all supported git operations only when outputting to a terminal.
+# Use color for all supported Git operations only when outputting to a terminal.
 
 [color]
     ui = auto
@@ -57,7 +58,7 @@
     prompt = false
     keepBackup = false
 
-# Set up convenient git aliases. Where possible, constructs like shell functions are avoided in
+# Set up convenient Git aliases. Where possible, constructs like shell functions are avoided in
 # favor of mechanisms that will work across platforms like direct command aliases or, where
 # arguments are required, direct subshelling.
 

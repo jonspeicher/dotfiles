@@ -1,5 +1,4 @@
-# .ackrc is the user-specific global configuration file for ack. It must exist in $HOME or be
-# specified by $ACKRC, with $ACKRC having higher precedence. See:
+# .ackrc is the user-specific global configuration file for ack. See:
 #
 #     http://betterthangrep.com/documentation/man.html#the__ackrc_file
 #

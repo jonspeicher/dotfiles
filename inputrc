@@ -1,6 +1,10 @@
-# .inputrc is the user-specific system-wide configuration file for the readline library, which is 
-# used by several different programs, including screen and, most notably, bash. See
-# http://www.gnu.org/software/bash/manual/html_node/Command-Line-Editing.html for more information.
+# .inputrc is the user-specific global configuration file for the readline library, which is used
+# by several different programs, including screen and bash. See:
+#
+#     http://www.gnu.org/software/bash/manual/html_node/Command-Line-Editing.html
+#
+# for more information, including a description of configuration file, command-line option, shell
+# option, and environment variable precedence.
 
 # Use vi editing mode.
 

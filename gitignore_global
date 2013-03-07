@@ -1,11 +1,12 @@
-# .gitignore_global is the user-specific system-wide ignore pattern configuration file for Git. It 
-# must be specified by core.excludesfile. It cannot override configuration specified in configuration files elsewhere,Its configuration will be overridden by repository-
-# specific configuration files, configuration files in the working tree, or configuration specified
-# on the command line. See:
+# .gitignore_global is the user-specific global ignore pattern configuration file for Git. To work,
+# this file must be specified as the global configuration file using the core.excludesfile variable
+# in the Git configuration. See:
 #
 #     https://www.kernel.org/pub/software/scm/git/docs/gitignore.html
+#     https://www.kernel.org/pub/software/scm/git/docs/git-config.html
 #
-# for more information.
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
 
 # Always ignore vim swap files.
 
