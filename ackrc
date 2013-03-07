@@ -1,12 +1,10 @@
 # .ackrc is the user-specific global configuration file for ack. It must exist in $HOME or be
-# specified by $ACKRC, with $ACKRC having higher precedence. No other system- or tree-specific
-# configuration files exist for it to override. Configuration within this file will be merged with
-# command-line options, with command-line options overriding configuration within this file where
-# applicable. See:
+# specified by $ACKRC, with $ACKRC having higher precedence. See:
 #
 #     http://betterthangrep.com/documentation/man.html#the__ackrc_file
 #
-# for more information.
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
 
 # Add Arduino and Processing file types.
 

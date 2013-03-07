@@ -1,13 +1,11 @@
 # .autotest is the user-specific global configuration file for the Ruby Autotest tool, which is part
 # of the ZenTest gem. It must exist in $HOME or be specified on the command line, with the command
-# line having higher precedence. Configuration within this file will be merged with configuration
-# within tree-specific configuration files and command-line options, with configuration within tree-
-# specific files overriding configuration within this file, and both overriding command-line
-# options, where applicable. See:
+# line having higher precedence. See:
 #
 #     http://zentest.rubyforge.org/ZenTest
 #
-# for more information.
+# for more information, including a description of configuration file, command-line option, and
+# environment variable precedence.
 
 # Use the fsevent and Growl plugins. These will probably only work on OS X.
 
