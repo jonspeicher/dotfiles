@@ -34,7 +34,7 @@
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
-# Reject irreversable line end manipulation and point to system-wide exclude and attribute files.
+# Reject irreversible line end manipulation and point to system-wide exclude and attribute files.
 
 [core]
     safecrlf = true
