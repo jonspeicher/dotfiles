@@ -10,17 +10,9 @@
 
 ['/etc/irbrc'].each { |file| load file if File.exist? file }
 
-# Add tab completion.
-
-require 'irb/completion'
-
 # Add some small amount of detail to some output.
 
 IRB.conf[:VERBOSE] = true
-
-# Remove the extended prompt.
-
-IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 # Define a function to be used within IRB as a shortcut for viewing Ruby documentation. This is the
 # equivalent of the ri command-line tool.
