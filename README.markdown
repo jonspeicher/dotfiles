@@ -1,7 +1,11 @@
 These are my dotfiles. There are many others like them, but these ones are mine.
 
 TBD: finish dotlink.py, split gitconfig into Windows and OS X, address irbrc duplicate
-functionality, address OS X-specifics in bashrc and irbrc (xcrun, /etc/irbrc, etc?)
+functionality, address OS X-specifics in bashrc and irbrc (xcrun, /etc/irbrc, etc?) - maybe just
+make those .osx when dotlink is done to force something more complex in the future if it ever
+becomes an issue? That's probably the easiest, most direct, KISS thing for now, so bashrc.osx and
+irbrc.osx would be the only bashrc and irbrc in dotfiles, and I just wouldn't get them and wouldn't
+ignore them on Windows or Linux, and if I ever wanted them, then I'd have to do work: YAGNI.
 
 copydot.py is a work-in-progress intended to help me manage my dual Windows and OS X
 life. It needs a lot of work, and so do my dotfiles in general, particularly with
