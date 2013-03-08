@@ -8,7 +8,7 @@
 # On certain systems (e.g. Mac OS X) there may be additional configuration files that are worth
 # loading, and irb won't do it by default.
 
-['/etc/irbrc'].each { |file| load file if File.exist? file }
+['/etc/irbrc'].each {|file| load file if File.exist? file}
 
 # Add some small amount of detail to some output.
 
