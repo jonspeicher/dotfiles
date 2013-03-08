@@ -75,4 +75,4 @@ function set_shell_prompt {
     PS1="${ORANGE}\h${DEFAULT}:${PINK}\W${DEFAULT} ${git_prompt_decorator}\$ "
 }
 
-export PROMPT_COMMAND=set_shell_prompt
+export PROMPT_COMMAND="set_shell_prompt; $PROMPT_COMMAND"
