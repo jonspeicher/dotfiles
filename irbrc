@@ -5,6 +5,11 @@
 # for more information, including a description of configuration file, command-line option, and
 # environment variable precedence.
 
+# On certain systems (e.g. Mac OS X) there may be additional configuration files that are worth
+# loading, and irb won't do it by default.
+
+['/etc/irbrc'].each { |file| load file if File.exist? file }
+
 # Add tab completion.
 
 require 'irb/completion'
