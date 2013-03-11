@@ -44,7 +44,19 @@ set hidden
 " TBD: This can apparently go in a gvimrc or something.
 " See http://vim.wikia.com/wiki/Open_vimrc_file
 
-let &guioptions = substitute(&guioptions, "t", "", "g")
+" TBD: When the substitution happens here, there apparently is no T for toolbar in guioptions, and
+" so the toolbar appears, presumably because it is added in to the guioptions later (when?); the
+" substitution appears to be case-insensitive, and I don't know why, and I don't know what the &
+" means.
+
+" TBD: More links to read:
+" http://daddy.platte.name/2007/05/remove-menu-bar-and-toolbar-from-gvim.html
+" http://vim.wikia.com/wiki/Open_vimrc_file
+" http://stackoverflow.com/questions/846879/remove-the-toolbar-in-gvim
+" http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
+
+"let &guioptions = substitute(&guioptions, "t", "", "g")
+
 " Highlight the current line, enable line numbers, display incomplete commands in the last line,
 " and show a long-line indicator column.
 
@@ -75,6 +87,10 @@ set ignorecase smartcase
 
 " Set up the preferred font and color scheme, and turn on syntax highlighting.
 
+" TBD: When the substitution happens here, there apparently is a T for toolbar in guioptions, and
+" so the sustitution removes it, and no toolbar appears.
+
+let &guioptions = substitute(&guioptions, "t", "", "g")
 set guifont=Consolas:h10:cANSI
 color Tomorrow-Night
 syntax on

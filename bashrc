@@ -7,6 +7,16 @@
 # bash startup file execution precedence.
 # See http://www.linuxfromscratch.org/blfs/view/svn/postlfs/profile.html for what should go where.
 
+# TBD: Some more links to read:
+# http://www.linuxquestions.org/questions/linux-general-1/etc-profile-v-s-etc-bashrc-273992/
+# http://www.linuxfromscratch.org/blfs/view/svn/postlfs/profile.html
+# http://savage.net.au/Linux/html/bash.files.html
+# http://superuser.com/questions/147043/where-to-find-the-bashrc-file-on-mac-os-x-snow-leopard-and-lion
+# http://hacktux.com/bash/bashrc/bash_profile
+# http://parsedcontent.blogspot.com/2011/09/osx-and-bashrc.html
+# http://superuser.com/questions/479703/profile-and-bashrc-doesnt-work-on-my-mac
+# http://apple.stackexchange.com/questions/14651/where-are-environment-variables-specified-when-profile-bash-login-bash-prof/14655#14655
+
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
 
