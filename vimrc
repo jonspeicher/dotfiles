@@ -74,8 +74,8 @@ set laststatus=2
 " Use enhanced command-line completion display, and complete with the longest common substring on
 " the first press of the completion character, followed by a list.
 
-"set wildmode=longest,list
 set wildmenu
+set wildmode=longest,full
 
 " Enable incremental search and search highlighting. Also, make searches case-sensitive only if they
 " contain upper-case characters. It should be noted that setting ignorecase affects the substitute
