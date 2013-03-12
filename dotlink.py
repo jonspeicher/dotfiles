@@ -42,6 +42,8 @@ for_platform = make_filter(platform_patterns)
 unignored_filenames = filter(not_ignored, repo_filenames)
 platform_filenames = filter(for_platform, unignored_filenames)
 source_filenames = [os.path.join(repo_directory, filename) for filename in platform_filenames]
+dotted_dest_filenames = ['.' + filename for filename in platform_filenames]
 
 print repo_filenames
 print source_filenames
+print dotted_dest_filenames
