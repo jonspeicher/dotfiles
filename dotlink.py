@@ -25,6 +25,9 @@ def make_filter(patterns, negate = False):
         filter_lambda = lambda item: regex.match(item)
     return filter_lambda
 
+def strip_platform(filename):
+    return re.sub('\.[^\.]+$', '', filename)
+
 repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
@@ -42,8 +45,8 @@ for_platform = make_filter(platform_patterns)
 unignored_filenames = filter(not_ignored, repo_filenames)
 platform_filenames = filter(for_platform, unignored_filenames)
 source_filenames = [os.path.join(repo_directory, filename) for filename in platform_filenames]
-dotted_dest_filenames = ['.' + filename for filename in platform_filenames]
+dest_filenames = ['.' + strip_platform(filename) for filename in platform_filenames]
 
 print repo_filenames
 print source_filenames
-print dotted_dest_filenames
+print dest_filenames
