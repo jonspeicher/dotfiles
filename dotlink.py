@@ -28,6 +28,9 @@ def make_filter(patterns, negate = False):
 def strip_platform(filename):
     return re.sub('\.[^\.]+$', '', filename)
 
+def link(source_filename, dest_filename):
+    print 'Linking %s to %s' % (source_filename, dest_filename)
+
 repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
@@ -46,7 +49,7 @@ unignored_filenames = filter(not_ignored, repo_filenames)
 platform_filenames = filter(for_platform, unignored_filenames)
 source_filenames = [os.path.join(repo_directory, filename) for filename in platform_filenames]
 dest_filenames = ['.' + strip_platform(filename) for filename in platform_filenames]
+link_pairs = zip(source_filenames, dest_filenames)
 
-print repo_filenames
-print source_filenames
-print dest_filenames
+for pair in link_pairs:
+    link(*pair)
