@@ -106,7 +106,7 @@ filetype plugin indent on
 
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" Key map configuration ----------------------------------------------------------------------------
+" Key mapping and behavior -------------------------------------------------------------------------
 
 " Change the leader key. This should be done before any key mappings using <Leader>.
 
@@ -134,7 +134,6 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-" Custom functions and commands, often tied to more key map configuration --------------------------
 
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
@@ -143,5 +142,4 @@ function! ResizeVimWindow()
   set lines=44
   set columns=105
 endfunction
-
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
