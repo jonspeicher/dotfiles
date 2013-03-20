@@ -108,6 +108,10 @@ autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Key map configuration ----------------------------------------------------------------------------
 
+" Change the leader key. This should be done before any key mappings using <Leader>.
+
+let mapleader=","
+
 " Allow backspacing beyond the start of the insert point.
 
 set backspace=indent,eol,start
