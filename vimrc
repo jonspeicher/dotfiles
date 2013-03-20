@@ -132,6 +132,10 @@ nnoremap Y y$
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
+" Quickly edit or source the vimrc file.
+
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>sv :source $MYVIMRC<CR>
 
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
