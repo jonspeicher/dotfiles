@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# TBD: test for the existance of os.link or whatever, then try mklink
+# as a fallback? clean up the organization of this file? vim -> vimfiles,
+# .linkdotrc?
+
 import os, re, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'

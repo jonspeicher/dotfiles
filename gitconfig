@@ -8,6 +8,9 @@
 # for more information, including a description of configuration file, command-line option, and
 # environment variable precedence.
 
+# TBD: gitconfig_common has all but machine stuff, then gitconfig.osx and
+# gitconfig.win?
+
 # TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
 
 [user]

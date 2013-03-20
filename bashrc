@@ -85,4 +85,9 @@ function set_shell_prompt {
     PS1="${ORANGE}\h${DEFAULT}:${PINK}\W${DEFAULT} ${git_prompt_decorator}\$ "
 }
 
+# TBD: /etc/profile doesn't get executed for non-login bashes; for login shells, everything is fine,
+# as /etc/profile will define update_cwd or whatever. For non-login bashes, that won't get exported,
+# but this prompt will, leading to an error. Non-login bashes still get the git prompt magic,
+# though, since they source ~/.bashrc, which defines it for every non-login bash.
+
 export PROMPT_COMMAND+="set_shell_prompt;"
