@@ -134,11 +134,17 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " Quickly edit or source the vimrc file.
 
+" TBD: Editing $MYVIMRC won't work on Windows because of the symlink garbage. Maybe just remove it?
+" Or make it edit dotfiles\vimrc directly?
+
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :source $MYVIMRC<CR>
 
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
+
+" TBD: It would be nice if this was variable for OS X and Windows, maybe with a platform-specific
+" 'include' file or a conditional? Or is there a way to figure the best size?
 
 function! ResizeVimWindow()
   set lines=44
