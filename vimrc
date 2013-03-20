@@ -8,11 +8,6 @@
 " TBD: tabs vs spaces, indenting, newline at end of file, trailing whitespace trimming
 " TBD: Look into textwidth and making the long-line column dependent on that, and consider setting
 "      textwidth based on filetype?
-" TBD: make a function to run, mapped to a key, that sets the size to 100x50 or whatever (using
-"      "set lines=50" and "set columns=100", and otherwise just leave the size at whatever the
-"      terminal is, so that vim popping up in another terminal window as part of a git command (for
-"      example) doesn't resize the terminal window automatically but so that I can invoke the
-"      function quickly expand a vim window to a good size if I want
 " TBD: make a function to change to the working directory of the current file and potentially
 "      launch Ack from there as well, see:
 "      http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
@@ -135,7 +130,7 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-" Custom functions (and more key map configuration) ------------------------------------------------
+" Custom functions and commands, often tied to more key map configuration --------------------------
 
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
@@ -144,3 +139,6 @@ function! ResizeVimWindow()
   set lines=44
   set columns=105
 endfunction
+
+:command! ResizeVimWindow :call ResizeVimWindow()
+:map <silent> <Leader>r :ResizeVimWindow<CR>
