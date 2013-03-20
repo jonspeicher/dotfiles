@@ -128,11 +128,9 @@ map <Down> <Nop>
 
 nnoremap Y y$
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
+" Clear the search highlighting when clearing and redrawing the screen with Ctrl-L.
 
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
