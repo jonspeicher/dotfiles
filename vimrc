@@ -134,3 +134,13 @@ nnoremap Y y$
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
+
+" Custom functions (and more key map configuration) ------------------------------------------------
+
+" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
+" reasonable.
+
+function SizeVimWindow()
+  set lines=44
+  set columns=105
+endfunction
