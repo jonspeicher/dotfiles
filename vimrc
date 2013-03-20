@@ -103,7 +103,7 @@ set smarttab
 
 " File-type-specific configuration -----------------------------------------------------------------
 
-" Enable file type detection, file type plugins, and indent files for language-specific indending.
+" Enable file type detection, file type plugins, and indent files for language-specific indenting.
 
 filetype plugin indent on
 
