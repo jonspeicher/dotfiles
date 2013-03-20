@@ -6,10 +6,13 @@
 #     https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
 #
 # for more information, including a description of configuration file, command-line option, and
-# environment variable precedence.
+# environment variable precedence. See:
+#
+#     https://www.kernel.org/pub/software/scm/git/docs/git-config.html
+#
+# for a description of all specific configuration options supported by git.
 
-# TBD: gitconfig_common has all but machine stuff, then gitconfig.osx and
-# gitconfig.win?
+# TBD: gitconfig_common has all but machine stuff, then gitconfig.osx and gitconfig.win?
 
 # TBD: Machine-specific stuff here (work/home) -----------------------------------------------------
 
