@@ -37,10 +37,13 @@
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
-# Reject irreversible line end manipulation and point to system-wide exclude and attribute files.
+# Reject irreversible line end manipulation, override git's default less options to enable folds for
+# long lines rather than chops (see man git-config), and point to system-wide exclude and attribute
+# files.
 
 [core]
     safecrlf = true
+    pager = less -+S
     excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
 
