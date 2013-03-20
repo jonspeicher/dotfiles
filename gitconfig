@@ -37,13 +37,10 @@
 
 # TBD: Platform-generic stuff here -----------------------------------------------------------------
 
-# Reject irreversible line end manipulation, override git's default less options to enable folds for
-# long lines rather than chops (see man git-config), and point to system-wide exclude and attribute
-# files.
+# Reject irreversible line end manipulation and point to system-wide exclude and attribute files.
 
 [core]
     safecrlf = true
-    pager = less -+S
     excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
 
@@ -63,6 +60,12 @@
 [mergetool]
     prompt = false
     keepBackup = false
+
+# Override git's default less options to enable folds rather than chops for long lines, but only for
+# diffs at this point in an attempt to promote good behavior in commit messages.
+
+[pager]
+    diff = less -+S
 
 # Set up convenient Git aliases. Where possible, constructs like shell functions are avoided in
 # favor of mechanisms that will work across platforms like direct command aliases or, where
