@@ -140,7 +140,7 @@ endif
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
 
-function! SizeVimWindow()
+function! ResizeVimWindow()
   set lines=44
   set columns=105
 endfunction
