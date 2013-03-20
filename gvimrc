@@ -13,4 +13,7 @@ set guioptions-=t
 
 " Set the font.
 
-set guifont=Consolas:h10:cANSI
+" TBD: This is likely to be Windows-specific; do I need something common or platform-specific
+" files?
+
+set guifont=Meslo_LG_S:h10:cANSI
