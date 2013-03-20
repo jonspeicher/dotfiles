@@ -144,5 +144,4 @@ function! ResizeVimWindow()
   set columns=105
 endfunction
 
-command! ResizeVimWindow :call ResizeVimWindow()
-nnoremap <silent> <Leader>r :ResizeVimWindow<CR>
+nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
