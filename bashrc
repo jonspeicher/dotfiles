@@ -17,6 +17,9 @@
 # http://superuser.com/questions/479703/profile-and-bashrc-doesnt-work-on-my-mac
 # http://apple.stackexchange.com/questions/14651/where-are-environment-variables-specified-when-profile-bash-login-bash-prof/14655#14655
 
+# TBD: address OS X specifics, organize the file much better than it is, clean up comments for
+# consistency.
+
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
 
@@ -25,11 +28,13 @@ set -o vi
 # Convenient aliases.
 
 alias cls='clear'
+# TBD: ls -l@? ls -l? does the ls alias get expanded by default in subsequent aliases? I bet it
+# does
 alias ls='ls -GF'
 alias la='ls -laGF'
 
-# Modern Xcode installs Git inside the application bundle. Use the Git that comes with Xcode for
-# now. See man xcrun for more information.
+# Modern Xcode on OS X installs Git inside the application bundle. Use the Git that comes with Xcode
+# for now. See man xcrun for more information.
 
 alias git='xcrun git'
 
