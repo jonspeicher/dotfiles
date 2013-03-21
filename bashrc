@@ -38,6 +38,18 @@ alias la='ls -laGF'
 
 alias git='xcrun git'
 
+# The Launch Services database on OS X frequently gets corrupted such that the Open With menu
+# contains a number of incorrect and duplicate entries. Alias a command to make cleaning it easy.
+
+alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -all system,local,user'
+
+# Sometimes a file will be marked to explicitly open with some custom program or another. Reverting
+# it to the default involves deleting extended attributes for that file. Use this with extreme
+# caution as there may be data beyond the opening application stored in the resource fork, which
+# this command unconditionally deletes.
+
+alias nukeresourcefork='xattr -d com.apple.ResourceFork'
+
 # Define a few colors for later use. The escaped brackets tell bash that they are non-printable and
 # keep word-wrapping sane. The LSCOLORS identifier follows each color. The RGB for the 16 stock
 # ANSI colors are redefined in Terminal under Lion and above using the built-in preferences.
