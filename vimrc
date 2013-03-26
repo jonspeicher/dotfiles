@@ -153,10 +153,15 @@ function! ResizeVimWindow()
 endfunction
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
+" Change to the directory of the current file and print the new working directory. More ideas are
+" at http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file.
+
 function! ChangeToAndPrintCurrentFileDir()
   cd %:p:h
   pwd
 endfunction
-
 nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
+
+" Change to the directory of the current file and start an Ack command.
+
 nnoremap <Leader>cda :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
