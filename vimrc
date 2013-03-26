@@ -151,9 +151,10 @@ function! ChangeToAndPrintCurrentFileDir()
 endfunction
 nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
 
-" Change to the directory of the current file and start an Ack command.
+" Start an Ack command, optionally changing to the current directory.
 
-nnoremap <Leader>cda :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
+nnoremap <Leader>a :Ack 
+nnoremap <Leader>ca :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
 
 " Quickly edit or source the vimrc file.
 
