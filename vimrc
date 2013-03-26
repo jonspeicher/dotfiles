@@ -126,6 +126,9 @@ map <Down> <Nop>
 nnoremap Y y$
 
 " Clear the search highlighting when clearing and redrawing the screen with Ctrl-L.
+"
+" TBD: This is now in conflict with C-L for moving among windows; consider Gary Bernhardt's <CR> to
+" clear search?
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
@@ -169,6 +172,13 @@ nnoremap <kPlus> <C-W>+
 nnoremap <kMinus> <C-W>-
 nnoremap <kDivide> <C-W><
 nnoremap <kMultiply> <C-W>>
+
+" Quickly navigate between split windows.
+
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
 
 " Change to the directory of the current file and print the new working directory. More ideas are at
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file.
