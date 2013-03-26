@@ -143,6 +143,14 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " :echo sizes[hostname()]['lines']
 "
 " http://andrewscala.com/vimscript
+"
+" Actually, gvimrc should always set the proper size without ,r and vimrc should not, but both
+" files should use a table of sizes, I think; that table can probably just live in vimrc since it's
+" always processed first? Also, is the function necessary?
+"
+" nmap <silent> <Leader>r :set lines=l columns=c<CR>
+"
+" Also, :winpos appears to work in gvim on Windows and in vim under a Terminal on OS X.
 
 function! ResizeVimWindow()
   set lines=44
