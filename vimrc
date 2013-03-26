@@ -8,9 +8,6 @@
 " TBD: tabs vs spaces, indenting, newline at end of file, trailing whitespace trimming
 " TBD: Look into textwidth and making the long-line column dependent on that, and consider setting
 "      textwidth based on filetype?
-" TBD: make a function to change to the working directory of the current file and potentially
-"      launch Ack from there as well, see:
-"      http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " TBD: figure out Ctrl-6/Ctrl-^ and why they're different on Windows vs. Mac
 " TBD: map Caps Lock to Ctrl on Windows?
 " TBD: another problem is that when I have vim open in one Terminal in OS X I can't do 'vim foo'
