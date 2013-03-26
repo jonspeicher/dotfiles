@@ -169,8 +169,8 @@ nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
 
 " Start an Ack command, optionally changing to the current directory.
 
-nmap <Leader>a :Ack 
-nmap <Leader>ca :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
+nmap <Leader>a :Ack<Space>
+nmap <Leader>ca :call ChangeToAndPrintCurrentFileDir()<CR>:Ack<Space>
 
 " Quickly edit or source the vimrc file.
 
