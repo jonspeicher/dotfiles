@@ -135,6 +135,14 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " TBD: It would be nice if this was variable for OS X and Windows, maybe with a platform-specific
 " 'include' file or a conditional? Or is there a way to figure the best size? Maybe have a
 " constant defined in a platform-specific file that is included at the top of this file?
+"
+" Actually, hostname() exists and returns the hostname of a given machine, and
+" vimscript supports dictionary types:
+"
+" :let sizes = {'latrice': {'lines': 44, 'columns': 105}}
+" :echo sizes[hostname()]['lines']
+"
+" http://andrewscala.com/vimscript
 
 function! ResizeVimWindow()
   set lines=44
