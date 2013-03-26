@@ -132,14 +132,6 @@ nnoremap Y y$
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" Quickly edit or source the vimrc file.
-
-" TBD: Editing $MYVIMRC won't work on Windows because of the symlink garbage. Maybe just remove it?
-" Or make it edit dotfiles\vimrc directly?
-
-nmap <silent> <Leader>ev :edit $MYVIMRC<CR>
-nmap <silent> <Leader>sv :source $MYVIMRC<CR>
-
 " Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
 " reasonable.
 
@@ -165,3 +157,11 @@ nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
 " Change to the directory of the current file and start an Ack command.
 
 nnoremap <Leader>cda :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
+
+" Quickly edit or source the vimrc file.
+
+" TBD: Editing $MYVIMRC won't work on Windows because of the symlink garbage. Maybe just remove it?
+" Or make it edit dotfiles\vimrc directly?
+
+nmap <silent> <Leader>ev :edit $MYVIMRC<CR>
+nmap <silent> <Leader>sv :source $MYVIMRC<CR>
