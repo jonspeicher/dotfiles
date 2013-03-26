@@ -158,8 +158,12 @@ function! ResizeVimWindow()
 endfunction
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
-" Change to the directory of the current file and print the new working directory. More ideas are
-" at http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file.
+" Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
+
+nmap <silent> <Leader>m :set lines=999 columns=999
+
+" Change to the directory of the current file and print the new working directory. More ideas are at
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file.
 
 function! ChangeToAndPrintCurrentFileDir()
   cd %:p:h
