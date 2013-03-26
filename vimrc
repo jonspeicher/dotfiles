@@ -152,3 +152,11 @@ function! ResizeVimWindow()
   set columns=105
 endfunction
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
+
+function! ChangeToAndPrintCurrentFileDir()
+  cd %:p:h
+  pwd
+endfunction
+
+nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
+nnoremap <Leader>cda :call ChangeToAndPrintCurrentFileDir()<CR>:Ack 
