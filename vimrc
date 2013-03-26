@@ -162,6 +162,14 @@ nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
 nmap <silent> <Leader>m :set lines=999 columns=999
 
+" Quickly change the horizontal and vertical size of a split window using the numeric keypad
+" operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
+
+nnoremap <kPlus> <C-W>+
+nnoremap <kMinus> <C-W>-
+nnoremap <kDivide> <C-W><
+nnoremap <kMultiply> <C-W>>
+
 " Change to the directory of the current file and print the new working directory. More ideas are at
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file.
 
