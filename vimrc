@@ -171,12 +171,16 @@ nmap <silent> <Leader>m :set lines=999 columns=999<CR>
 " Quickly change the horizontal and vertical size of a split window using the numeric keypad
 " operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
 "
-" TBD: duh, my laptop doesn't have these keys
+" TBD: duh, my laptop doesn't have these keys: consider C-= C-- C-n C-m as long as they don't have
+" other mappings, or come up with something for the leader. It's best to have one set of mappings
+" for laptop and desktop for muscle memory. And, of course, C-= and C-- appear to be un-mappable,
+" so I need to figure something else out. Look at that website and check out Gary Bernhardt's
+" mappings. Somewhere I swear somebody said they did mappings to C-= and C--; look those up?
 
-nnoremap <kPlus> <C-W>+
-nnoremap <kMinus> <C-W>-
-nnoremap <kDivide> <C-W><
-nnoremap <kMultiply> <C-W>>
+"nnoremap <kPlus> <C-W>+
+"nnoremap <kMinus> <C-W>-
+"nnoremap <kDivide> <C-W><
+"nnoremap <kMultiply> <C-W>>
 
 " Quickly navigate between split windows.
 
@@ -198,6 +202,16 @@ nnoremap <silent> <Leader>cd :call ChangeToAndPrintCurrentFileDir()<CR>
 
 nmap <Leader>a :Ack<Space>
 nmap <Leader>ca :call ChangeToAndPrintCurrentFileDir()<CR>:Ack<Space>
+" TBD: Add a command, maybe <Leader>aw or <Leader>wa, to select the word under the cursor and Ack
+" for it (selecting makes it easy to n when the file opens, unless <CR> clears hl when I remap it?)
+" <cword> may be helpful, and * will select, but actually it appears that :Ack searches for the
+" current word by default, so that *,a<CR> does what I want, but maybe there's a fast shortcut that
+" doesn't require the star keypress? :Ack <cword> will do it but not highlight the word, apparently.
+" I think I want the word highlighted as in a search. Also see:
+" https://forrst.com/posts/Using_Ack_with_Vim-g93
+" http://vimbits.com/bits/19
+" http://stackoverflow.com/questions/48642/how-do-i-specify-the-word-under-the-cursor-on-vims-commandline
+" https://github.com/mileszs/ack.vim/issues/33
 
 " Quickly edit or source the vimrc file.
 
