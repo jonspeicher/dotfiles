@@ -16,6 +16,7 @@
 "      shell alias, or maybe this is the problem that MacVim solves
 " TBD: vim doesn't seem to want to reload a file changed outside of vim on my Mac
 " TBD: something somewhere wants to wrap this file at 80 columns
+" TBD: double-check proper capitalization on key names etc.
 
 " Baseline options ---------------------------------------------------------------------------------
 
@@ -162,11 +163,15 @@ endfunction
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
 " Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
+"
+" TBD: consider putting the window at 0,0 as well
 
 nmap <silent> <Leader>m :set lines=999 columns=999<CR>
 
 " Quickly change the horizontal and vertical size of a split window using the numeric keypad
 " operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
+"
+" TBD: duh, my laptop doesn't have these keys
 
 nnoremap <kPlus> <C-W>+
 nnoremap <kMinus> <C-W>-
