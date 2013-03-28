@@ -129,7 +129,8 @@ nnoremap Y y$
 " Clear the search highlighting when clearing and redrawing the screen with Ctrl-L.
 "
 " TBD: This is now in conflict with C-L for moving among windows; consider Gary Bernhardt's <CR> to
-" clear search?
+" clear search? Especially if it's only mapped in normal mode? Test how it works, especially when
+" searching just to move into a line that I then intend to do motions in.
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
@@ -175,7 +176,9 @@ nmap <silent> <Leader>m :set lines=999 columns=999<CR>
 " other mappings, or come up with something for the leader. It's best to have one set of mappings
 " for laptop and desktop for muscle memory. And, of course, C-= and C-- appear to be un-mappable,
 " so I need to figure something else out. Look at that website and check out Gary Bernhardt's
-" mappings. Somewhere I swear somebody said they did mappings to C-= and C--; look those up?
+" mappings. Somewhere I swear somebody said they did mappings to C-= and C--; look those up? Also,
+" consider just going with ,- ,= ,, and ,. although Ctrl has the benefit of being repeatable by
+" holding down control and hitting ===== a lot and I don't think leader keys do?
 
 "nnoremap <kPlus> <C-W>+
 "nnoremap <kMinus> <C-W>-
