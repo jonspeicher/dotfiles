@@ -18,7 +18,7 @@
 # http://apple.stackexchange.com/questions/14651/where-are-environment-variables-specified-when-profile-bash-login-bash-prof/14655#14655
 
 # TBD: address OS X specifics, organize the file much better than it is, clean up comments for
-# consistency.
+# consistency, how much of this should go in...~/Code/scripts? ~/bin?
 
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
