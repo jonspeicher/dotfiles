@@ -81,6 +81,10 @@ DEFAULT='\['`tput sgr0`'\]' # x
 
 export LSCOLORS="fxexxxxxcxxxxxxxxxgxgx"
 
+# Configure colorized grep output.
+
+export GREP_OPTIONS="--color"
+
 # Build a prompt decorator if we're in a Git repo. The branch name is included in green if the
 # branch is master, red otherwise. An asterisk appears if the working directory is not clean.
 
