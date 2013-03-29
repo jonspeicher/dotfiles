@@ -50,6 +50,19 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 
 alias nukeresourcefork='xattr -d com.apple.ResourceFork'
 
+# Define a function that will output each of the 16 ANSI color numbers and LSCOLORS identifiers to
+# the terminal in the actual corresponding color. This can be used to check color mappings in
+# terminals that allow for the ANSI colors to be overridden.
+
+function colors {
+    letters=(a b c d e f g h A B C D E F G H)
+    for i in {0..15}
+    do
+        printf "%s%2d (%s) " `tput setaf $i` $i ${letters[$i]}
+        if (( ($i + 1) % 8 == 0 )); then printf "\n"; fi
+    done
+}
+
 # Define a few colors for later use. The escaped brackets tell bash that they are non-printable and
 # keep word-wrapping sane. The LSCOLORS identifier follows each color. The RGB for the 16 stock
 # ANSI colors are redefined in Terminal under Lion and above using the built-in preferences.
