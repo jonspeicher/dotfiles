@@ -23,6 +23,11 @@
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
 
+# TBD: This seems to have troubles with my color prompt stuff :(
+# TBD: Actually, it only seems to be an issue when using an arg count with
+# 'b' at this point, so 2w works, www works, bbb works, but 2b is messed up,
+# unfortunately it will take more investigation
+
 set -o vi
 
 # Convenient aliases.
@@ -49,6 +54,9 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 # this command unconditionally deletes.
 
 alias nukeresourcefork='xattr -d com.apple.ResourceFork'
+
+# TBD: Now that all the colors stuff is nice and non-os-specific, make some nice colors based on
+# monique or whatever.
 
 # Define a function that will output each of the 16 ANSI color numbers and LSCOLORS identifiers to
 # the terminal in the actual corresponding color. This can be used to check color mappings in
