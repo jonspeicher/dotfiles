@@ -90,6 +90,9 @@ export GREP_OPTIONS="--color"
 # branch is master and in a different color otherwise. An asterisk appears if the working directory
 # is not clean.
 
+MASTER_COLOR=$COLOR_2
+OTHER_COLOR=$COLOR_1
+
 function parse_git_branch {
 
     status="$(git status 2> /dev/null)"
@@ -100,14 +103,14 @@ function parse_git_branch {
 
         branch=${BASH_REMATCH[1]}
         dirty=""
-        color=${COLOR_1}
+        color=${OTHER_COLOR}
 
         if [[ ! ${status} =~ "working directory clean" ]]; then
             dirty="*"
         fi
 
         if [[ ${branch} == "master" ]]; then
-            color=${COLOR_2}
+            color=${MASTER_COLOR}
         fi
 
         git_prompt_decorator="on ${color}${branch}${COLOR_DEFAULT}${dirty} "
@@ -116,9 +119,12 @@ function parse_git_branch {
 
 # Set up a function that is run every time the shell prompt is generated.
 
+HOST_COLOR=$COLOR_3
+CWD_COLOR=$COLOR_5
+
 function set_shell_prompt {
     parse_git_branch
-    PS1="${COLOR_3}\h${COLOR_DEFAULT}:${COLOR_5}\W${COLOR_DEFAULT} ${git_prompt_decorator}\$ "
+    PS1="${HOST_COLOR}\h${COLOR_DEFAULT}:${CWD_COLOR}\W${COLOR_DEFAULT} ${git_prompt_decorator}\$ "
 }
 
 # TBD: /etc/profile doesn't get executed for non-login bashes; for login shells, everything is fine,
