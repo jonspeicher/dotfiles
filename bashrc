@@ -64,18 +64,19 @@ function colors {
 }
 
 # Define a few colors for later use. The escaped brackets tell bash that they are non-printable and
-# keep word-wrapping sane. The LSCOLORS identifier follows each color. The RGB for the 16 stock
-# ANSI colors are redefined in Terminal under Lion and above using the built-in preferences.
+# keep word-wrapping sane. The colors are defined with their ANSI color numbers rather than their
+# names because the actual colors may not correspond to the classic names if the RGB for the stock
+# colors are redefined in a terminal that supports this feature in its preferences or profiles.
 
-BLACK='\['`tput setaf 0`'\]' # a
-RED='\['`tput setaf 1`'\]' # b
-GREEN='\['`tput setaf 2`'\]' # c
-ORANGE='\['`tput setaf 3`'\]' # d
-PURPLE='\['`tput setaf 4`'\]' # e
-PINK='\['`tput setaf 5`'\]' # f
-CYAN='\['`tput setaf 6`'\]' # g
-WHITE='\['`tput setaf 7`'\]' # h
-DEFAULT='\['`tput sgr0`'\]' # x
+COLOR_DEFAULT='\['`tput sgr0`'\]'
+COLOR_0='\['`tput setaf 0`'\]'
+COLOR_1='\['`tput setaf 1`'\]'
+COLOR_2='\['`tput setaf 2`'\]'
+COLOR_3='\['`tput setaf 3`'\]'
+COLOR_4='\['`tput setaf 4`'\]'
+COLOR_5='\['`tput setaf 5`'\]'
+COLOR_6='\['`tput setaf 6`'\]'
+COLOR_7='\['`tput setaf 7`'\]'
 
 # Configure colorized ls output. See the ls man page for the format.
 
@@ -85,8 +86,9 @@ export LSCOLORS="fxexbxbxcxbxbxcxcxgxgx"
 
 export GREP_OPTIONS="--color"
 
-# Build a prompt decorator if we're in a Git repo. The branch name is included in green if the
-# branch is master, red otherwise. An asterisk appears if the working directory is not clean.
+# Build a prompt decorator if we're in a Git repo. The branch name appears in one color if the
+# branch is master and in a different color otherwise. An asterisk appears if the working directory
+# is not clean.
 
 function parse_git_branch {
 
@@ -98,17 +100,17 @@ function parse_git_branch {
 
         branch=${BASH_REMATCH[1]}
         dirty=""
-        color=${RED}
+        color=${COLOR_1}
 
         if [[ ! ${status} =~ "working directory clean" ]]; then
             dirty="*"
         fi
 
         if [[ ${branch} == "master" ]]; then
-            color=${GREEN}
+            color=${COLOR_2}
         fi
 
-        git_prompt_decorator="on ${color}${branch}${DEFAULT}${dirty} "
+        git_prompt_decorator="on ${color}${branch}${COLOR_DEFAULT}${dirty} "
     fi
 }
 
@@ -116,7 +118,7 @@ function parse_git_branch {
 
 function set_shell_prompt {
     parse_git_branch
-    PS1="${ORANGE}\h${DEFAULT}:${PINK}\W${DEFAULT} ${git_prompt_decorator}\$ "
+    PS1="${COLOR_3}\h${COLOR_DEFAULT}:${COLOR_5}\W${COLOR_DEFAULT} ${git_prompt_decorator}\$ "
 }
 
 # TBD: /etc/profile doesn't get executed for non-login bashes; for login shells, everything is fine,
