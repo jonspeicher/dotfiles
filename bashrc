@@ -79,7 +79,7 @@ DEFAULT='\['`tput sgr0`'\]' # x
 
 # Configure colorized ls output. See the ls man page for the format.
 
-export LSCOLORS="fxexxxxxcxxxxxxxxxgxgx"
+export LSCOLORS="fxexbxbxcxbxbxcxcxgxgx"
 
 # Configure colorized grep output.
 
