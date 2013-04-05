@@ -165,7 +165,8 @@ nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
 " Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
 "
-" TBD: consider putting the window at 0,0 as well
+" TBD: consider putting the window at 0,0 as well, and consider putting this at ,x so ,m and ,n can
+" size vertical splits
 
 nmap <silent> <Leader>m :set lines=999 columns=999<CR>
 
@@ -179,6 +180,7 @@ nmap <silent> <Leader>m :set lines=999 columns=999<CR>
 " mappings. Somewhere I swear somebody said they did mappings to C-= and C--; look those up? Also,
 " consider just going with ,- ,= ,, and ,. although Ctrl has the benefit of being repeatable by
 " holding down control and hitting ===== a lot and I don't think leader keys do?
+" I could also just do straight up +/- C-m C-n?
 
 "nnoremap <kPlus> <C-W>+
 "nnoremap <kMinus> <C-W>-
