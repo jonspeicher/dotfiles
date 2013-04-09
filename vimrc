@@ -158,8 +158,13 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Also, :winpos appears to work in gvim on Windows and in vim under a Terminal on OS X.
 
 function! ResizeVimWindow()
-  set lines=44
-  set columns=105
+
+  let dimensions = {'latrice':     {'x': 0, 'y': 0, 'lines': 44, 'columns': 105}, 
+                  \ 'JONSPEICHER': {'x': 0, 'y': 0, 'lines': 50, 'columns': 105}}
+
+  let dimension=dimensions[hostname()]
+  let &lines=dimension['lines']
+  let &columns=dimension['columns']
 endfunction
 nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
 
