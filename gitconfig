@@ -76,6 +76,9 @@
 
 [alias]
 
+# TBD: This might come in handy, and also check Gary Bernhardt's:
+# git log --pretty=format:'%Cred%h%Creset - %s'
+
     # Using difftool, show only changes to the current branch since it departed from the specified
     # parent branch (or master), ignoring changes that have happened on the parent branch since.
     # This is inspired by http://blackpixel.com/blog/2012/11/code-review-kaleidoscope.html.

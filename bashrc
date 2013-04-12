@@ -23,10 +23,9 @@
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
 
-# TBD: This seems to have troubles with my color prompt stuff :(
-# TBD: Actually, it only seems to be an issue when using an arg count with
-# 'b' at this point, so 2w works, www works, bbb works, but 2b is messed up,
-# unfortunately it will take more investigation
+# TBD: This seems to have troubles with my color prompt stuff :( Actually, it only seems to be an
+# issue when using an arg count with 'b' at this point, so 2w works, www works, bbb works, but 2b is
+# messed up, unfortunately it will take more investigation
 
 set -o vi
 
@@ -34,7 +33,7 @@ set -o vi
 
 alias cls='clear'
 # TBD: ls -l@? ls -l? does the ls alias get expanded by default in subsequent aliases? I bet it
-# does
+# does. ls -le?
 alias ls='ls -GF'
 alias la='ls -laGF'
 
@@ -42,6 +41,9 @@ alias la='ls -laGF'
 # for now. See man xcrun for more information.
 
 alias git='xcrun git'
+
+# TBD: Probably want something like this:
+# alias gcc='xcrun gcc --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk'
 
 # TBD: Now that all the colors stuff is nice and non-os-specific, make some nice colors based on
 # monique or whatever.
