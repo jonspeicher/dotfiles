@@ -17,3 +17,8 @@ set guioptions-=t
 " files?
 
 set guifont=Meslo_LG_S:h10:cANSI
+
+" Set the window dimensions as appropriate for this host. There's no good reason not to do this
+" unconditionally when running the GUI.
+
+call ResizeVimWindowForHost()
