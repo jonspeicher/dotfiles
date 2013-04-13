@@ -157,20 +157,26 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 "
 " Also, :winpos appears to work in gvim on Windows and in vim under a Terminal on OS X.
 
-function! ResizeVimWindow()
-  let dimensions = {'latrice.local': {'x': 10, 'y': 10, 'lines': 44, 'columns': 105}, 
-                  \ 'JONSPEICHER':   {'x':  0, 'y':  0, 'lines': 50, 'columns': 105},
-                  \ 'default':       {'x':  0, 'y':  0, 'lines': 25, 'columns':  85}}
-  let host=hostname()
-  if !has_key(dimensions, host)
-    let host='default'
+let g:vim_window_dimensions =
+  \ {'latrice.local': {'x': 10, 'y': 10, 'lines': 44, 'columns': 105}, 
+  \  'JONSPEICHER':   {'x':  0, 'y':  0, 'lines': 50, 'columns': 105},
+  \  'default':       {'x':  0, 'y':  0, 'lines': 25, 'columns':  85}}
+
+function! GetVimWindowDimensionsForHost(host)
+  let l:host=a:host
+  if !has_key(g:vim_window_dimensions, l:host)
+    let l:host='default'
   endif
-  let dimension=dimensions[host]
-  let &lines=dimension['lines']
-  let &columns=dimension['columns']
-  exec 'winpos' dimension['x'] dimension['y']
+  return g:vim_window_dimensions[l:host]
 endfunction
-nmap <silent> <Leader>r :call ResizeVimWindow()<CR>
+
+function! ResizeVimWindowForHost()
+  let dimensions=GetVimWindowDimensionsForHost(hostname())
+  let &lines=dimensions['lines']
+  let &columns=dimensions['columns']
+  exec 'winpos' dimensions['x'] dimensions['y']
+endfunction
+nmap <silent> <Leader>r :call ResizeVimWindowForHost()<CR>
 
 " Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
 "
