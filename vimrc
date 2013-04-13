@@ -159,8 +159,8 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 function! ResizeVimWindow()
 
-  let dimensions = {'latrice':     {'x': 0, 'y': 0, 'lines': 44, 'columns': 105}, 
-                  \ 'JONSPEICHER': {'x': 0, 'y': 0, 'lines': 50, 'columns': 105}}
+  let dimensions = {'latrice.local': {'x': 0, 'y': 0, 'lines': 44, 'columns': 105}, 
+                  \ 'JONSPEICHER':   {'x': 0, 'y': 0, 'lines': 50, 'columns': 105}}
 
   let dimension=dimensions[hostname()]
   let &lines=dimension['lines']
