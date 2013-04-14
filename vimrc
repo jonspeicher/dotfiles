@@ -168,7 +168,7 @@ nmap <silent> <Leader>r :call ResizeVimWindowForHost()<CR>
 " TBD: consider putting the window at 0,0 as well, and consider putting this at ,x so ,m and ,n can
 " size vertical splits
 
-nmap <silent> <Leader>m :set lines=999 columns=999<CR>
+nmap <silent> <Leader>x :set lines=999 columns=999<CR>
 
 " Quickly change the horizontal and vertical size of a split window using the numeric keypad
 " operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
