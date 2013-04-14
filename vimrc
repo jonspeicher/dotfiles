@@ -166,7 +166,8 @@ nmap <silent> <Leader>r :call ResizeVimWindowForHost()<CR>
 " Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
 "
 " TBD: consider putting the window at 0,0 as well, and consider putting this at ,x so ,m and ,n can
-" size vertical splits
+" size vertical splits, consider just making this a special case of the table like default:
+" ResizeVimWindow(dimension_dict_entry), ResizeVimWindowForHost(), and ResizeVimWindow('maximum')?
 
 nmap <silent> <Leader>x :set lines=999 columns=999<CR>
 
