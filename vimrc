@@ -134,12 +134,22 @@ nnoremap Y y$
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" Define the desired vim window dimensions for various host machines.
+" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to the dimensions
+" contained within the provided dictionary.
+
+function! ResizeVimWindow(dimensions)
+  let &lines=a:dimensions['lines']
+  let &columns=a:dimensions['columns']
+  exec 'winpos' a:dimensions['x'] a:dimensions['y']
+endfunction
+
+" Define the desired vim window dimensions for various host machines and special configurations.
 
 let g:vim_window_dimensions =
-  \ {'latrice.local': {'x': 10, 'y': 10, 'lines': 44, 'columns': 105}, 
-  \  'JONSPEICHER':   {'x':  0, 'y':  0, 'lines': 50, 'columns': 105},
-  \  'default':       {'x':  0, 'y':  0, 'lines': 25, 'columns':  85}}
+  \ {'latrice.local': {'x': 10, 'y': 10, 'lines':  44, 'columns': 105}, 
+  \  'JONSPEICHER':   {'x':  0, 'y':  0, 'lines':  50, 'columns': 105},
+  \  '*default*':     {'x':  0, 'y':  0, 'lines':  25, 'columns':  85},
+  \  '*maximized*':   {'x':  0, 'y':  0, 'lines': 999, 'columns': 999}}
 
 " Find the preferred vim window dimensions for the current host machine, or a default if the
 " preferred dimensions are not defined for the current host machine.
@@ -147,29 +157,27 @@ let g:vim_window_dimensions =
 function! GetVimWindowDimensionsForHost(host)
   let l:host=a:host
   if !has_key(g:vim_window_dimensions, l:host)
-    let l:host='default'
+    let l:host='*default*'
   endif
   return g:vim_window_dimensions[l:host]
 endfunction
 
-" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
-" reasonable based on the current host machine's desired dimensions.
+" Quickly resize the current vim window to something reasonable based on the current host machine's
+" desired dimensions.
 
 function! ResizeVimWindowForHost()
   let dimensions=GetVimWindowDimensionsForHost(hostname())
-  let &lines=dimensions['lines']
-  let &columns=dimensions['columns']
-  exec 'winpos' dimensions['x'] dimensions['y']
+  call ResizeVimWindow(dimensions)
 endfunction
 nmap <silent> <Leader>r :call ResizeVimWindowForHost()<CR>
 
-" Quickly "maximize" the current vim window (whether it is gvim or vim in a terminal).
-"
-" TBD: consider putting the window at 0,0 as well, and consider putting this at ,x so ,m and ,n can
-" size vertical splits, consider just making this a special case of the table like default:
-" ResizeVimWindow(dimension_dict_entry), ResizeVimWindowForHost(), and ResizeVimWindow('maximum')?
+" Quickly "maximize" the current vim window.
 
-nmap <silent> <Leader>x :set lines=999 columns=999<CR>
+function! MaximizeVimWindow()
+  let dimensions=GetVimWindowDimensionsForHost('*maximized*')
+  call ResizeVimWindow(dimensions)
+endfunction
+nmap <silent> <Leader>x :call MaximizeVimWindow()<CR>
 
 " Quickly change the horizontal and vertical size of a split window using the numeric keypad
 " operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
