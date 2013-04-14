@@ -134,33 +134,15 @@ nnoremap Y y$
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
-" reasonable.
-
-" TBD: It would be nice if this was variable for OS X and Windows, maybe with a platform-specific
-" 'include' file or a conditional? Or is there a way to figure the best size? Maybe have a
-" constant defined in a platform-specific file that is included at the top of this file?
-"
-" Actually, hostname() exists and returns the hostname of a given machine, and
-" vimscript supports dictionary types:
-"
-" :let sizes = {'latrice': {'lines': 44, 'columns': 105}}
-" :echo sizes[hostname()]['lines']
-"
-" http://andrewscala.com/vimscript
-"
-" Actually, gvimrc should always set the proper size without ,r and vimrc should not, but both
-" files should use a table of sizes, I think; that table can probably just live in vimrc since it's
-" always processed first? Also, is the function necessary?
-"
-" nmap <silent> <Leader>r :set lines=l columns=c<CR>
-"
-" Also, :winpos appears to work in gvim on Windows and in vim under a Terminal on OS X.
+" Define the desired vim window dimensions for various host machines.
 
 let g:vim_window_dimensions =
   \ {'latrice.local': {'x': 10, 'y': 10, 'lines': 44, 'columns': 105}, 
   \  'JONSPEICHER':   {'x':  0, 'y':  0, 'lines': 50, 'columns': 105},
   \  'default':       {'x':  0, 'y':  0, 'lines': 25, 'columns':  85}}
+
+" Find the preferred vim window dimensions for the current host machine, or a default if the
+" preferred dimensions are not defined for the current host machine.
 
 function! GetVimWindowDimensionsForHost(host)
   let l:host=a:host
@@ -169,6 +151,9 @@ function! GetVimWindowDimensionsForHost(host)
   endif
   return g:vim_window_dimensions[l:host]
 endfunction
+
+" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to something
+" reasonable based on the current host machine's desired dimensions.
 
 function! ResizeVimWindowForHost()
   let dimensions=GetVimWindowDimensionsForHost(hostname())
