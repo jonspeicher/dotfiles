@@ -134,16 +134,25 @@ nnoremap Y y$
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" Define the desired vim window dimensions for various host machines and special configurations.
+" Define the preferred vim window dimensions for various host machines and special configurations.
 
 let g:vim_window_dimensions =
-  \ {'default':       {'x':  0, 'y':  0, 'lines':  25, 'columns':  85},
-  \  'latrice.local': {'x': 10, 'y': 10, 'lines':  44, 'columns': 105}, 
-  \  'JONSPEICHER':   {'x':  0, 'y':  0, 'lines':  50, 'columns': 105},
-  \  'maximized':     {'x':  0, 'y':  0, 'lines': 999, 'columns': 999}}
+  \ {'default':       {'x':   0, 'y':  0, 'lines':  25, 'columns':  85},
+  \  'latrice.local': {'x':  10, 'y': 10, 'lines':  44, 'columns': 105}, 
+  \  'JONSPEICHER':   {'x': 410, 'y': 25, 'lines':  50, 'columns': 105},
+  \  'maximized':     {'x':   0, 'y':  0, 'lines': 999, 'columns': 999}}
 
-" Find the preferred vim window dimensions for the specified configuration, or a default if the
-" specified configuration name is not found.
+" Set the current vim window dimensions to the dimensions contained within the provided dictionary.
+" This may even work for console vim in certain terminals (like OS X's).
+
+function! SetVimWindowDimensions(dimensions)
+  let &lines=a:dimensions['lines']
+  let &columns=a:dimensions['columns']
+  exec 'winpos' a:dimensions['x'] a:dimensions['y']
+endfunction
+
+" Find the preferred vim window dimensions for the specified configuration name, or a default if
+" the specified configuration name is not found.
 
 function! GetVimWindowDimensionsForConfig(config)
   let l:config=a:config
@@ -153,28 +162,22 @@ function! GetVimWindowDimensionsForConfig(config)
   return g:vim_window_dimensions[l:config]
 endfunction
 
-" Quickly resize the current vim window (whether it is gvim or vim in a terminal) to the dimensions
-" contained within the provided dictionary.
+" Set the current vim window dimensions to the preferred dimensions for the specified configuration
+" name, or a default if the specified configuration name is not found.
 
-function! ResizeVimWindow(dimensions)
-  let &lines=a:dimensions['lines']
-  let &columns=a:dimensions['columns']
-  exec 'winpos' a:dimensions['x'] a:dimensions['y']
+function! SetVimWindowDimensionsToConfig(config)
+  let dimensions=GetVimWindowDimensionsForConfig(a:config)
+  call SetVimWindowDimensions(dimensions)
 endfunction
 
-function! ResizeVimWindowForHost(host)
-  let dimensions=GetVimWindowDimensionsForHost(a:host)
-  call ResizeVimWindow(dimensions)
-endfunction
+" Quickly set the current vim window's dimensions to the preferred dimensions for this host, or a
+" default if there are no preferred dimensions for this host.
 
-" Quickly resize the current vim window to something reasonable based on the current host machine's
-" desired dimensions.
-
-nmap <silent> <Leader>r :call ResizeVimWindowForHost(hostname())<CR>
+nmap <silent> <Leader>r :call SetVimWindowDimensionsToConfig(hostname())<CR>
 
 " Quickly "maximize" the current vim window.
 
-nmap <silent> <Leader>x :call ResizeVimWindowForHost('maximized')<CR>
+nmap <silent> <Leader>x :call SetVimWindowDimensionsToConfig('maximized')<CR>
 
 " Quickly change the horizontal and vertical size of a split window using the numeric keypad
 " operator keys, but only in normal mode. See http://vim.wikia.com/wiki/VimTip427 for more ideas.
