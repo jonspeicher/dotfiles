@@ -2,7 +2,7 @@
 
 # TBD: test for the existance of os.link or whatever, then try mklink
 # as a fallback? clean up the organization of this file? vim -> vimfiles,
-# .linkdotrc?
+# .linkdotrc? clean up the conditional in make_filter? make_include_filter and make_exclude_filter?
 
 import os, re, sys
 

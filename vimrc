@@ -173,6 +173,9 @@ endfunction
 " Quickly set the current vim window's dimensions to the preferred dimensions for this host, or a
 " default if there are no preferred dimensions for this host.
 
+" TBD: strip all but the actual hostname from the return from hostname() to address latrice vs.
+" latrice.local?
+
 nmap <silent> <Leader>r :call SetVimWindowDimensionsToConfig(hostname())<CR>
 
 " Quickly "maximize" the current vim window.
