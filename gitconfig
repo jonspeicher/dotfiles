@@ -10,7 +10,7 @@
 #
 #     https://www.kernel.org/pub/software/scm/git/docs/git-config.html
 #
-# for a description of all specific configuration options supported by git.
+# for a description of all specific configuration options supported by Git.
 
 # TBD: gitconfig_common has all but machine stuff, then gitconfig.osx and gitconfig.win?
 
@@ -64,7 +64,7 @@
     prompt = false
     keepBackup = false
 
-# Override git's default less options to enable folds rather than chops for long lines, but only for
+# Override Git's default less options to enable folds rather than chops for long lines, but only for
 # diffs at this point in an attempt to promote good behavior in commit messages.
 
 [pager]
