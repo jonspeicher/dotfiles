@@ -29,6 +29,10 @@
 
 set -o vi
 
+# Path modifications.
+
+export PATH=$PATH:~/Code/scripts
+
 # Convenient aliases.
 
 alias cls='clear'
