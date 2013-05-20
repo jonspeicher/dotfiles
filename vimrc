@@ -170,13 +170,16 @@ function! SetVimWindowDimensionsToConfig(config)
   call SetVimWindowDimensions(dimensions)
 endfunction
 
+" Find the root of the hostname without any domain extensions that may be added.
+
+function! GetHostnameRoot()
+  return split(hostname(), '\.')[0]
+endfunction
+
 " Quickly set the current vim window's dimensions to the preferred dimensions for this host, or a
 " default if there are no preferred dimensions for this host.
 
-" TBD: strip all but the actual hostname from the return from hostname() to address latrice vs.
-" latrice.local?
-
-nmap <silent> <Leader>r :call SetVimWindowDimensionsToConfig(hostname())<CR>
+nmap <silent> <Leader>r :call SetVimWindowDimensionsToConfig(GetHostnameRoot())<CR>
 
 " Quickly "maximize" the current vim window.
 
