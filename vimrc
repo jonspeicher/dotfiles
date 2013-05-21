@@ -137,10 +137,10 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " Define the preferred vim window dimensions for various host machines and special configurations.
 
 let g:vim_window_dimensions =
-  \ {'default':       {'x':   0, 'y':  0, 'lines':  25, 'columns':  85},
-  \  'latrice.local': {'x':  10, 'y': 10, 'lines':  44, 'columns': 105}, 
-  \  'JONSPEICHER':   {'x': 410, 'y': 25, 'lines':  50, 'columns': 105},
-  \  'maximized':     {'x':   0, 'y':  0, 'lines': 999, 'columns': 999}}
+  \ {'default':     {'x':   0, 'y':  0, 'lines':  25, 'columns':  85},
+  \  'latrice':     {'x':  10, 'y': 10, 'lines':  44, 'columns': 105}, 
+  \  'JONSPEICHER': {'x': 410, 'y': 25, 'lines':  50, 'columns': 105},
+  \  'maximized':   {'x':   0, 'y':  0, 'lines': 999, 'columns': 999}}
 
 " Set the current vim window dimensions to the dimensions contained within the provided dictionary.
 " This may even work for console vim in certain terminals (like OS X's).
