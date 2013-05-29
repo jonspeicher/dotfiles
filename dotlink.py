@@ -34,10 +34,10 @@ def strip_platform(filename):
 def link(source_filename, dest_filename):
     print 'Linking %s to %s' % (source_filename, dest_filename)
 
-repo_directory, script_filename = os.path.split(sys.argv[0])
+repo_path, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
-repo_filenames = os.listdir(repo_directory)
+repo_filenames = os.listdir(repo_path)
 
 user_ignore_patterns = stripped_lines(user_ignore_filename)
 ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
@@ -48,11 +48,12 @@ user_platform_patterns = [USER_PLATFORM_PATTERN_TEMPLATE % platform for platform
 platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
 for_platform = make_include_filter(platform_patterns)
 
-unignored_filenames = filter(not_ignored, repo_filenames)
-platform_filenames = filter(for_platform, unignored_filenames)
-source_filenames = [os.path.join(repo_directory, filename) for filename in platform_filenames]
-dest_filenames = ['.' + strip_platform(filename) for filename in platform_filenames]
-link_pairs = zip(source_filenames, dest_filenames)
+not_ignored_filenames = filter(not_ignored, repo_filenames)
+for_platform_filenames = filter(for_platform, not_ignored_filenames)
+source_filenames = [os.path.join(repo_path, filename) for filename in for_platform_filenames]
 
+dest_filenames = ['.' + strip_platform(filename) for filename in for_platform_filenames]
+
+link_pairs = zip(source_filenames, dest_filenames)
 for pair in link_pairs:
     link(*pair)
