@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-# TBD: test for the existance of os.link or whatever, then try mklink
-# as a fallback? clean up the organization of this file? vim -> vimfiles,
-# .linkdotrc? clean up the conditional in make_filter? make_include_filter and make_exclude_filter?
+# TBD: test for the existance of os.link or whatever, then try mklink as a fallback? clean up the
+# organization of this file? vim -> vimfiles, .linkdotrc?
 
 import os, re, sys
 
@@ -20,14 +19,14 @@ def stripped_lines(filename):
         lines = []
     return [line.strip() for line in lines]
 
-def make_filter(patterns, negate = False):
+def make_include_filter(patterns):
     joined_patterns = "(" + ")|(".join(patterns) + ")"
     regex = re.compile(joined_patterns)
-    if negate:
-        filter_lambda = lambda item: not regex.match(item)
-    else:
-        filter_lambda = lambda item: regex.match(item)
-    return filter_lambda
+    return lambda item: regex.match(item)
+
+def make_exclude_filter(patterns):
+    include_filter = make_include_filter(patterns)
+    return lambda item: not include_filter(item)
 
 def strip_platform(filename):
     return re.sub('\.[^\.]+$', '', filename)
@@ -42,12 +41,12 @@ repo_filenames = os.listdir(repo_directory)
 
 user_ignore_patterns = stripped_lines(user_ignore_filename)
 ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
-not_ignored = make_filter(ignore_patterns, negate = True)
+not_ignored = make_exclude_filter(ignore_patterns)
 
 user_platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
 user_platform_patterns = [USER_PLATFORM_PATTERN_TEMPLATE % platform for platform in user_platforms]
 platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
-for_platform = make_filter(platform_patterns)
+for_platform = make_include_filter(platform_patterns)
 
 unignored_filenames = filter(not_ignored, repo_filenames)
 platform_filenames = filter(for_platform, unignored_filenames)
