@@ -39,10 +39,10 @@ def strip_platform(filename):
     basename, extension = os.path.splitext(filename)
     return basename
 
-def link(source_path, dest_path):
+def link(source_path, destination_path):
     '''Create the destination filename as a platform-appropriate link to the source filename.'''
     # TBD: This should try os.link and then fall back to shelling to mklink
-    print '%s => %s' % (dest_path, source_path)
+    print '%s => %s' % (destination_path, source_path)
 
 # Determine the relevant directories, paths, and filenames.
 repo_directory, script_filename = os.path.split(sys.argv[0])
@@ -73,11 +73,11 @@ source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
 source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
 
 # Transform the list of source filenames into a list of aliased paths to link to those files.
-dest_filenames = ['.' + strip_platform(filename) for filename in source_filenames]
-dest_filenames = [aliases.get(filename, filename) for filename in dest_filenames]
-dest_paths = [os.path.join('.', filename) for filename in dest_filenames]
+destination_filenames = ['.' + strip_platform(filename) for filename in source_filenames]
+destination_filenames = [aliases.get(filename, filename) for filename in destination_filenames]
+destination_paths = [os.path.join('.', filename) for filename in destination_filenames]
 
 # Create the destination paths as links to the source paths.
-link_pairs = zip(source_paths, dest_paths)
+link_pairs = zip(source_paths, destination_paths)
 for pair in link_pairs:
     link(*pair)
