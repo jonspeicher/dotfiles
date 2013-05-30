@@ -61,7 +61,7 @@ for_platform = make_include_filter(platform_patterns)
 source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
 source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
 
-# Transform the list of source filenames into a list of links to create to those source files.
+# Transform the list of source filenames into a list of paths to link to those source files.
 dest_paths = ['.' + strip_platform(filename) for filename in source_filenames]
 
 # Create the destination paths as links to the source paths.
