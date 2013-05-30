@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # TBD: clean up the organization of this file? vim -> vimfiles, .linkdotrc?
+# TBD: store .dotlink_ignore and .dotlink_alias somewhere for win/osx?
 
 import os, re, sys
 
