@@ -39,7 +39,7 @@ def strip_platform(filename):
 def link(source_path, dest_path):
     '''Create the destination filename as a platform-appropriate link to the source filename.'''
     # TBD: This should try os.link and then fall back to shelling to mklink
-    print 'Linking %s to %s' % (source_path, dest_path)
+    print '%s => %s' % (dest_path, source_path)
 
 # Determine the relevant directories, paths, and filenames.
 repo_directory, script_filename = os.path.split(sys.argv[0])
