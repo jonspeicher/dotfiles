@@ -63,6 +63,13 @@ source_paths = [os.path.join(repo_directory, filename) for filename in source_fi
 
 # Transform the list of source filenames into a list of paths to link to those source files.
 dest_paths = ['.' + strip_platform(filename) for filename in source_filenames]
+# TBD: idea: build a dict of .original_filename -> _renamed_filename or whatever, that is somehow
+# defaulted for files that don't appear in .dotlink_rename, then unconditionally replace/transform
+# all filenames from key -> value, or:
+# renames = {'foo': 'bar', 'baz': 'quux'}
+# filenames = ['foo', 'baz', 'charlie']
+# print [renames.get(filename, filename) for filename in filenames] => ['bar', 'quux', 'charlie']
+# Is there a map or a defaultdict that makes this cleaner?
 
 # Create the destination paths as links to the source paths.
 link_pairs = zip(source_paths, dest_paths)
