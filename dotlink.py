@@ -35,17 +35,16 @@ def strip_platform(filename):
     # TBD: should this use os.path.splitext for clarity/non-regexitivity?
     return re.sub('\.[^\.]+$', '', filename)
 
-def link(source_filename, dest_filename):
+def link(source_path, dest_path):
     '''Create the destination filename as a platform-appropriate link to the source filename.'''
     # TBD: This should try os.link and then fall back to shelling to mklink
-    # TBD: These should be paths, not filenames?
-    print 'Linking %s to %s' % (source_filename, dest_filename)
+    print 'Linking %s to %s' % (source_path, dest_path)
 
-# Determine the relevant paths and filenames.
-repo_path, script_filename = os.path.split(sys.argv[0])
+# Determine the relevant directories, paths, and filenames.
+repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
-repo_filenames = os.listdir(repo_path)
+repo_filenames = os.listdir(repo_directory)
 
 # Build a filter to exclude files based on the configured exclude patterns.
 user_ignore_patterns = stripped_lines(user_ignore_filename)
@@ -59,17 +58,13 @@ platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
 for_platform = make_include_filter(platform_patterns)
 
 # Filter the list of files in the repo and transform it into a list of paths to create links to.
-# TBD: Update the list of variable names, files vs. paths, remove intermediate names and make it,
-# e.g. source_filenames = filter, source_filenames = filter, source_paths = [join...
-not_ignored_filenames = filter(not_ignored, repo_filenames)
-for_platform_filenames = filter(for_platform, not_ignored_filenames)
-source_filenames = [os.path.join(repo_path, filename) for filename in for_platform_filenames]
+source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
+source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
 
 # Transform the list of source filenames into a list of links to create to those source files.
-# TBD: Update the list of variable names, files vs. paths, remove intermediate names
-dest_filenames = ['.' + strip_platform(filename) for filename in for_platform_filenames]
+dest_paths = ['.' + strip_platform(filename) for filename in source_filenames]
 
 # Create the destination paths as links to the source paths.
-link_pairs = zip(source_filenames, dest_filenames)
+link_pairs = zip(source_paths, dest_paths)
 for pair in link_pairs:
     link(*pair)
