@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
-# TBD: clean up the organization of this file? vim -> vimfiles, .linkdotrc?
+# TBD: clean up the organization of this file?
 # TBD: store .dotlink_ignore and .dotlink_alias somewhere for win/osx?
 
 import os, re, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'      # .scriptname_ignore is the ignore config file
 BUILTIN_IGNORE_PATTERNS = ['^README.*', '^\..*']  # Ignore README variants and dotfiles by default
+
+USER_ALIAS_FILENAME_TEMPLATE = '.%s_alias'        # .scriptname_alias is the alias config file
+BUILTIN_ALIASES = {}                              # Don't alias anything by default
 
 USER_PLATFORM_PATTERN_TEMPLATE = '.*\.%s$'        # The platform is indicated by the file extension
 BUILTIN_PLATFORM_PATTERNS = ['^[^\.]+$']          # Include files with no platform by default
@@ -45,12 +48,19 @@ def link(source_path, dest_path):
 repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
+user_alias_filename = USER_ALIAS_FILENAME_TEMPLATE % script_basename
 repo_filenames = os.listdir(repo_directory)
 
 # Build a filter to exclude files based on the configured exclude patterns.
 user_ignore_patterns = stripped_lines(user_ignore_filename)
 ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
 not_ignored = make_exclude_filter(ignore_patterns)
+
+# Build a dictionary to contain the configured destination filename aliases.
+aliases = BUILTIN_ALIASES
+# TBD: user_aliases = stripped_pairs(user_alias_filename)
+user_aliases = {}
+aliases.update(user_aliases)
 
 # Build patterns and a filter to include platforms based on the specified platform identifiers.
 user_platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
@@ -62,15 +72,10 @@ for_platform = make_include_filter(platform_patterns)
 source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
 source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
 
-# Transform the list of source filenames into a list of paths to link to those source files.
-dest_paths = ['.' + strip_platform(filename) for filename in source_filenames]
-# TBD: idea: build a dict of .original_filename -> _renamed_filename or whatever, that is somehow
-# defaulted for files that don't appear in .dotlink_rename, then unconditionally replace/transform
-# all filenames from key -> value, or:
-# renames = {'foo': 'bar', 'baz': 'quux'}
-# filenames = ['foo', 'baz', 'charlie']
-# print [renames.get(filename, filename) for filename in filenames] => ['bar', 'quux', 'charlie']
-# Is there a map or a defaultdict that makes this cleaner?
+# Transform the list of source filenames into a list of aliased paths to link to those files.
+dest_filenames = ['.' + strip_platform(filename) for filename in source_filenames]
+dest_filenames = [aliases.get(filename, filename) for filename in dest_filenames]
+dest_paths = [os.path.join('.', filename) for filename in dest_filenames]
 
 # Create the destination paths as links to the source paths.
 link_pairs = zip(source_paths, dest_paths)
