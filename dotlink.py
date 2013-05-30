@@ -32,8 +32,8 @@ def make_exclude_filter(patterns):
 
 def strip_platform(filename):
     '''Strip the platform identifier, which is just the file extension, from the given filename.'''
-    # TBD: should this use os.path.splitext for clarity/non-regexitivity?
-    return re.sub('\.[^\.]+$', '', filename)
+    basename, extension = os.path.splitext(filename)
+    return basename
 
 def link(source_path, dest_path):
     '''Create the destination filename as a platform-appropriate link to the source filename.'''
