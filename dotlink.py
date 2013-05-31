@@ -25,6 +25,10 @@ def stripped_lines(filename):
         lines = []
     return [line.strip() for line in lines]
 
+def stripped_pairs(filename):
+    '''Return a list of stripped lines from the file, each split into a tuple on whitespace.'''
+    return [line.split() for line in stripped_lines(filename)]
+
 def make_include_filter(patterns):
     '''Return a filter predicate that includes strings matching any of the patterns provided.'''
     joined_patterns = "(" + ")|(".join(patterns) + ")"
@@ -59,9 +63,8 @@ ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filen
 not_ignored = make_exclude_filter(ignore_patterns)
 
 # Build a dictionary to contain the configured destination filename aliases.
+user_aliases = dict(stripped_pairs(user_alias_filename))
 aliases = BUILTIN_ALIASES
-# TBD: user_aliases = stripped_pairs(user_alias_filename)
-user_aliases = {}
 aliases.update(user_aliases)
 
 # Build patterns and a filter to include platforms based on the specified platform identifiers.
