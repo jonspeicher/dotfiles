@@ -27,6 +27,7 @@ def stripped_lines(filename):
 
 def stripped_pairs(filename):
     '''Return a list of stripped lines from the file, each split into a tuple on whitespace.'''
+    # TBD: dict comprehension?
     return [line.split() for line in stripped_lines(filename)]
 
 def make_include_filter(patterns):
