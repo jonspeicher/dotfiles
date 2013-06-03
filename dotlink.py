@@ -25,10 +25,9 @@ def stripped_lines(filename):
         lines = []
     return [line.strip() for line in lines]
 
-def stripped_pairs(filename):
-    '''Return a list of stripped lines from the file, each split into a tuple on whitespace.'''
-    # TBD: dict comprehension?
-    return [line.split() for line in stripped_lines(filename)]
+def split_to_dict(lines):
+    '''Return a dictionary of key/value pairs from each line split into a tuple on whitespace.'''
+    return dict([line.split() for line in lines])
 
 def make_include_filter(patterns):
     '''Return a filter predicate that includes strings matching any of the patterns provided.'''
@@ -64,7 +63,7 @@ ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filen
 not_ignored = make_exclude_filter(ignore_patterns)
 
 # Build a dictionary to contain the configured destination filename aliases.
-user_aliases = dict(stripped_pairs(user_alias_filename))
+user_aliases = split_to_dict(stripped_lines(user_alias_filename))
 aliases = BUILTIN_ALIASES
 aliases.update(user_aliases)
 
