@@ -79,14 +79,14 @@ for_platform = make_include_filter(platform_patterns)
 
 # Filter the list of files in the repo and transform it into a list of paths to create links to.
 
-source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
-source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
+filtered_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
+source_paths = [os.path.join(repo_directory, filename) for filename in filtered_filenames]
 
 # Transform the list of source filenames into a list of aliased paths to link to those files.
 
-destination_filenames = ['.' + strip_platform(filename) for filename in source_filenames]
-destination_filenames = [aliases.get(filename, filename) for filename in destination_filenames]
-destination_paths = [os.path.join('.', filename) for filename in destination_filenames]
+dotted_filenames = ['.' + strip_platform(filename) for filename in filtered_filenames]
+aliased_filenames = [aliases.get(filename, filename) for filename in dotted_filenames]
+destination_paths = [os.path.join('.', filename) for filename in aliased_filenames]
 
 # Create the destination paths as links to the source paths.
 
