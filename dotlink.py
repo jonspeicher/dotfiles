@@ -51,6 +51,7 @@ def link(source_path, destination_path):
     print '%s => %s' % (destination_path, source_path)
 
 # Determine the relevant directories, paths, and filenames.
+
 repo_directory, script_filename = os.path.split(sys.argv[0])
 script_basename, script_extension = os.path.splitext(script_filename)
 user_ignore_filename = USER_IGNORE_FILENAME_TEMPLATE % script_basename
@@ -58,31 +59,38 @@ user_alias_filename = USER_ALIAS_FILENAME_TEMPLATE % script_basename
 repo_filenames = os.listdir(repo_directory)
 
 # Build a filter to exclude files based on the configured exclude patterns.
+
 user_ignore_patterns = stripped_lines(user_ignore_filename)
 ignore_patterns = BUILTIN_IGNORE_PATTERNS + user_ignore_patterns + [script_filename]
 not_ignored = make_exclude_filter(ignore_patterns)
 
 # Build a dictionary to contain the configured destination filename aliases.
+
 user_aliases = split_to_dict(stripped_lines(user_alias_filename))
 aliases = BUILTIN_ALIASES
 aliases.update(user_aliases)
 
 # Build patterns and a filter to include platforms based on the specified platform identifiers.
+
 user_platforms = sys.argv[1:] if len(sys.argv) >= 2 else []
 user_platform_patterns = [USER_PLATFORM_PATTERN_TEMPLATE % platform for platform in user_platforms]
 platform_patterns = BUILTIN_PLATFORM_PATTERNS + user_platform_patterns
 for_platform = make_include_filter(platform_patterns)
 
 # Filter the list of files in the repo and transform it into a list of paths to create links to.
+
 source_filenames = filter(for_platform, filter(not_ignored, repo_filenames))
 source_paths = [os.path.join(repo_directory, filename) for filename in source_filenames]
 
 # Transform the list of source filenames into a list of aliased paths to link to those files.
+
 destination_filenames = ['.' + strip_platform(filename) for filename in source_filenames]
 destination_filenames = [aliases.get(filename, filename) for filename in destination_filenames]
 destination_paths = [os.path.join('.', filename) for filename in destination_filenames]
 
 # Create the destination paths as links to the source paths.
+
 link_pairs = zip(source_paths, destination_paths)
+
 for pair in link_pairs:
     link(*pair)
