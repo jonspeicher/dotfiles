@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-# TBD: clean up the organization of this file?
 # TBD: inconsistency: .dotlink_ignore won't work if the leader is specified (with proper escaping)
 #      and .dotlink_alias won't work if it isn't
 # TBD: store .dotlink_ignore and .dotlink_alias somewhere for win/osx?
