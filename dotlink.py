@@ -46,8 +46,11 @@ def strip_platform(filename):
 
 def link(source_path, destination_path):
     '''Create the destination filename as a platform-appropriate link to the source filename.'''
-    # TBD: This should try os.link and then fall back to shelling to mklink
     print '%s => %s' % (destination_path, source_path)
+    try:
+        os.symlink(source_path, destination_path)
+    except AttributeError:
+        print 'MKLINK /S ' + source_path + ' ' + destination_path
 
 # Determine the relevant directories, paths, and filenames.
 
