@@ -4,7 +4,7 @@
 #      and .dotlink_alias won't work if it isn't
 # TBD: store .dotlink_ignore and .dotlink_alias somewhere for win/osx?
 
-import os, re, sys
+import os, re, subprocess, sys
 
 USER_IGNORE_FILENAME_TEMPLATE = '.%s_ignore'      # .scriptname_ignore is the ignore config file
 BUILTIN_IGNORE_PATTERNS = ['^README.*', '^\..*']  # Ignore README variants and dotfiles by default
@@ -50,7 +50,8 @@ def link(source_path, destination_path):
     try:
         os.symlink(source_path, destination_path)
     except AttributeError:
-        print 'MKLINK /S ' + source_path + ' ' + destination_path
+        dir_link_switch = '/d' if os.path.isdir(source_path) else ''
+        subprocess.call(['MKLINK', dir_link_switch, destination_path, source_path])
 
 # Determine the relevant directories, paths, and filenames.
 
