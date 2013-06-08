@@ -51,6 +51,10 @@ def link(source_path, destination_path):
         os.symlink(source_path, destination_path)
     except AttributeError:
         dir_link_switch = '/d' if os.path.isdir(source_path) else ''
+        # TBD: This can actually fail with an OSError if for some reason it winds up here and the
+        # subprocess call is not valid; that exception won't be caught since this isn't tried. This
+        # could also return a nonzero status code which could be caught with subprocess.check_call,
+        # but it's a) not tried and b) unclear what to do if it's caught.
         subprocess.call(['MKLINK', dir_link_switch, destination_path, source_path])
     except OSError:
         # TBD: The code will wind up here if the file exists an an os.symlink is attempted; this is
@@ -101,4 +105,6 @@ destination_paths = [os.path.join('.', filename) for filename in aliased_filenam
 link_pairs = zip(source_paths, destination_paths)
 
 for pair in link_pairs:
+    # TBD: The printing should be done here, along with maybe some indication that a file was
+    # skipped because it existed or something; maybe for s,d in zip(sp,dp):
     link(*pair)
