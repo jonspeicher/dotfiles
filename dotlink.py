@@ -52,6 +52,11 @@ def link(source_path, destination_path):
     except AttributeError:
         dir_link_switch = '/d' if os.path.isdir(source_path) else ''
         subprocess.call(['MKLINK', dir_link_switch, destination_path, source_path])
+    except OSError:
+        # TBD: The code will wind up here if the file exists an an os.symlink is attempted; this is
+        # fine except if changing platforms and wanting to link e.g. foo -> foo.osx when it is
+        # already linked to foo -> foo.win; this code won't update the link
+        pass
 
 # Determine the relevant directories, paths, and filenames.
 
