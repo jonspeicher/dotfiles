@@ -46,6 +46,13 @@ set hidden
 set autoread
 set autowrite
 
+" Split and window management ----------------------------------------------------------------------
+
+" Make splits behave more intuitively.
+
+set splitbelow
+set splitright
+
 " Visual appearance --------------------------------------------------------------------------------
 
 " Highlight the current line, enable line numbers, display incomplete commands in the last line,
@@ -195,7 +202,8 @@ nmap <silent> <Leader>x :call SetVimWindowDimensionsToConfig('maximized')<CR>
 " mappings. Somewhere I swear somebody said they did mappings to C-= and C--; look those up? Also,
 " consider just going with ,- ,= ,, and ,. although Ctrl has the benefit of being repeatable by
 " holding down control and hitting ===== a lot and I don't think leader keys do?
-" I could also just do straight up +/- C-m C-n?
+" I could also just do straight up +/- C-m C-n? See also:
+" http://robots.thoughtbot.com/post/48275867281/vim-splits-move-faster-and-more-naturally
 
 "nnoremap <kPlus> <C-W>+
 "nnoremap <kMinus> <C-W>-
