@@ -20,6 +20,11 @@
 # TBD: address OS X specifics, organize the file much better than it is, clean up comments for
 # consistency, how much of this should go in...~/Code/scripts? ~/bin?
 
+# TBD: This is necessary to prevent child shells from complaining about missing references in
+# $PROMPT_COMMAND (see below). It's a hack and I'm not sure if it's the right way to do things.
+
+source /etc/bashrc
+
 # Change readline to vi mode for bash shells. See ~/.inputrc for non-bash applications as well as
 # for vi keymap modifications that apply to all readline-using programs, including bash.
 
