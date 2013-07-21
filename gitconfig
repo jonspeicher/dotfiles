@@ -76,8 +76,13 @@
 
 [alias]
 
-# TBD: This might come in handy, and also check Gary Bernhardt's:
-# git log --pretty=format:'%Cred%h%Creset - %s'
+# TBD: These might come in handy, and also check Gary Bernhardt's:
+#
+# A pretty log: git log --pretty=format:'%Cred%h%Creset - %s'
+# Show files changed in a given commit: git diff-tree --no-commit-id --name-only -r <commit>
+# Show the commit that deleted a file: git log -1 --stat -- <path-to-now-deleted-file>
+# Show commits since the common ancestor with another branch in the named paths:
+# git log --topo-order --format=oneline $(git merge-base <branch1> <branch2>)..HEAD <path>
 
     # Using difftool, show only changes to the current branch since it departed from the specified
     # parent branch (or master), ignoring changes that have happened on the parent branch since.
