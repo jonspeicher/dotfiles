@@ -10,10 +10,6 @@
 "      textwidth based on filetype?
 " TBD: figure out Ctrl-6/Ctrl-^ and why they're different on Windows vs. Mac
 " TBD: map Caps Lock to Ctrl on Windows?
-" TBD: another problem is that when I have vim open in one Terminal in OS X I can't do 'vim foo'
-"      from a different terminal command prompt and have the file open in my other vim instance; I
-"      think there's a command-line switch I'm using on Windows that I could look at, maybe make a
-"      shell alias, or maybe this is the problem that MacVim solves
 " TBD: vim doesn't seem to want to reload a file changed outside of vim on my Mac
 " TBD: something somewhere wants to wrap this file at 80 columns
 " TBD: double-check proper capitalization on key names etc.
