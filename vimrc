@@ -61,7 +61,10 @@ set splitright
 set cursorline
 set number
 set showcmd
-set colorcolumn=100
+" TBD: This may make the Boot Camp easier and I can't get consistent results with
+" filetypes yet.
+" set colorcolumn=100
+set colorcolumn=80
 
 " Set up the status line and ensure that it is always displayed. This obviates the ruler option in
 " this configuration.
@@ -110,6 +113,11 @@ filetype plugin indent on
 " Strip trailing whitespace from lines in selected file types.
 
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" TBD: Make this official or remove it; I don't want to look like a n00b at Boot Camp
+
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType gitcommit setlocal colorcolumn=80
 
 " Key mapping and behavior -------------------------------------------------------------------------
 

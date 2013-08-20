@@ -33,6 +33,9 @@ set -o vi
 
 export PATH=$PATH:~/Code/scripts
 
+# TBD figure out if this is official and the best place for this
+export PATH=$PATH:/Applications/Developer/pebble-dev/arm-cs-tools/bin
+
 # Convenient aliases.
 
 alias cls='clear'
@@ -135,3 +138,15 @@ function set_shell_prompt {
 # though, since they source ~/.bashrc, which defines it for every non-login bash.
 
 export PROMPT_COMMAND+="set_shell_prompt;"
+
+# TBD: Remove this and make it cleaner at some point.
+echo "`tput setaf 2`The system Python is enabled by default."
+function anaconda_set_shell_prompt {
+    parse_git_branch
+    PS1="[🐍 ] ${HOST_COLOR}\h${COLOR_DEFAULT}:${CWD_COLOR}\W${COLOR_DEFAULT} ${git_prompt_decorator}\$ "
+}
+function anaconda {
+    echo "`tput setaf 1`Anaconda is enabled for the remainder of this session.`tput sgr0`"
+    export PATH=~/Applications/anaconda/bin:$PATH
+    export PROMPT_COMMAND="update_terminal_cwd; anaconda_set_shell_prompt;"
+}
