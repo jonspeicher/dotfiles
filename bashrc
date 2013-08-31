@@ -91,6 +91,10 @@ export LSCOLORS="fxexbxbxcxbxbxcxcxgxgx"
 
 export GREP_OPTIONS="--color"
 
+# Enable git completion.
+
+source ~/.git_completion
+
 # Build a prompt decorator if we're in a Git repo. The branch name appears in one color if the
 # branch is master and in a different color otherwise. An asterisk appears if the working directory
 # is not clean.
