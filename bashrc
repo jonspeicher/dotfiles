@@ -50,7 +50,7 @@ alias la='ls -laGF'
 alias git='xcrun git'
 
 # TBD: Probably want something like this:
-# alias gcc='xcrun gcc --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk'
+alias gcc='xcrun gcc --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk'
 
 # TBD: Now that all the colors stuff is nice and non-os-specific, make some nice colors based on
 # monique or whatever.
