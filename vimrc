@@ -113,6 +113,7 @@ autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 " TBD: Make this official or remove it; I don't want to look like a n00b at Boot Camp
 
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType c setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType gitcommit setlocal colorcolumn=80
 
 " Key mapping and behavior -------------------------------------------------------------------------
