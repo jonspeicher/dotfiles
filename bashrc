@@ -44,14 +44,6 @@ alias cls='clear'
 alias ls='ls -GF'
 alias la='ls -laGF'
 
-# Modern Xcode on OS X installs Git inside the application bundle. Use the Git that comes with Xcode
-# for now. See man xcrun for more information.
-
-alias git='xcrun git'
-
-# TBD: Probably want something like this:
-alias gcc='xcrun gcc --sysroot=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk'
-
 # TBD: Now that all the colors stuff is nice and non-os-specific, make some nice colors based on
 # monique or whatever.
 
